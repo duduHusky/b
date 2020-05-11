@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="WJun">
+  
+  
+  
+  <link rel="prev" href="https://example.com/2019/docker-install-redis/" />
+  <link rel="next" href="https://example.com/2020/nginx-https/" />
+  <link rel="canonical" href="https://example.com/2019/grom-datetime-format/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Gorm返回的JSON里时间格式 | duduHusky
+       
+  </title>
+  <meta name="title" content="Gorm返回的JSON里时间格式 | duduHusky">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "Gorm返回的JSON里时间格式",
+    "headline" : "Gorm返回的JSON里时间格式",
+    "description" : "Golang中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model。 Gorm是这样定义的：\ntype Model struct { ID uint `gorm:\x26quot;primary_key\x26quot;` CreatedAt time.Time UpdatedAt time.Time }  当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式\nconst ( ANSIC = \x26quot;Mon Jan _2 15:04:05 2006\x26quot; UnixDate = \x26quot;Mon Jan _2 15:04:05 MST 2006\x26quot; RubyDate = \x26quot;Mon Jan 02 15:04:05 -0700 2006\x26quot; RFC822 = \x26quot;02 Jan 06 15:04 MST\x26quot; RFC822Z = \x26quot;02 Jan 06 15:04 -0700\x26quot; \/\/ RFC822 with numeric zone RFC850 = \x26quot;Monday, 02-Jan-06 15:04:05 MST\x26quot; RFC1123 = \x26quot;Mon, 02 Jan 2006 15:04:05 MST\x26quot; RFC1123Z = \x26quot;Mon, 02 Jan 2006 15:04:05 -0700\x26quot; \/\/ RFC1123 with numeric zone RFC3339 = \x26quot;2006-01-02T15:04:05Z07:00\x26quot; RFC3339Nano = \x26quot;2006-01-02T15:04:05.",
+    "inLanguage" : "en-us",
+    "author" : "WJun",
+    "creator" : "WJun",
+    "publisher": "WJun",
+    "accountablePerson" : "WJun",
+    "copyrightHolder" : "WJun",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-13 14:51:47 \x2b0800 CST",
+    "dateModified" : "2019-12-13 14:51:47 \x2b0800 CST",
+    "url" : "https:\/\/example.com\/2019\/grom-datetime-format\/",
+    "wordCount" : "364",
+    "keywords" : [ "gorm", "duduHusky"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Gorm返回的JSON里时间格式</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://example.com" rel="author">WJun</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-13 itemprop="datePublished">December 13, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://example.com/categories/gorm/"> Gorm </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Golang中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model。 Gorm是这样定义的：</p>
+
+<pre><code class="language-golang">type Model struct {
+    ID        uint `gorm:&quot;primary_key&quot;`
+    CreatedAt time.Time
+    UpdatedAt time.Time
+}
+</code></pre>
+
+<p>当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是<code>2006-01-02T15:04:05.999999999Z07:00</code>这种格式</p>
+
+<pre><code class="language-go">const (
+    ANSIC       = &quot;Mon Jan _2 15:04:05 2006&quot;
+    UnixDate    = &quot;Mon Jan _2 15:04:05 MST 2006&quot;
+    RubyDate    = &quot;Mon Jan 02 15:04:05 -0700 2006&quot;
+    RFC822      = &quot;02 Jan 06 15:04 MST&quot;
+    RFC822Z     = &quot;02 Jan 06 15:04 -0700&quot; // RFC822 with numeric zone
+    RFC850      = &quot;Monday, 02-Jan-06 15:04:05 MST&quot;
+    RFC1123     = &quot;Mon, 02 Jan 2006 15:04:05 MST&quot;
+    RFC1123Z    = &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; // RFC1123 with numeric zone
+    RFC3339     = &quot;2006-01-02T15:04:05Z07:00&quot;
+    RFC3339Nano = &quot;2006-01-02T15:04:05.999999999Z07:00&quot;
+    Kitchen     = &quot;3:04PM&quot;
+    // Handy time stamps.
+    Stamp      = &quot;Jan _2 15:04:05&quot;
+    StampMilli = &quot;Jan _2 15:04:05.000&quot;
+    StampMicro = &quot;Jan _2 15:04:05.000000&quot;
+    StampNano  = &quot;Jan _2 15:04:05.000000000&quot;
+)
+</code></pre>
+
+<p>原因是在go的time包中实现<code>json.Marshaler</code>接口时指定了使用RFC3339Nano这种格式</p>
+
+<pre><code class="language-go">// MarshalJSON implements the json.Marshaler interface.
+// The time is a quoted string in RFC 3339 format, with sub-second precision added if present.
+func (t Time) MarshalJSON() ([]byte, error) {
+    if y := t.Year(); y &lt; 0 || y &gt;= 10000 {
+        // RFC 3339 is clear that years are 4 digits exactly.
+        // See golang.org/issue/4556#c15 for more discussion.
+        return nil, errors.New(&quot;Time.MarshalJSON: year outside of range [0,9999]&quot;)
+    }
+
+    b := make([]byte, 0, len(RFC3339Nano)+2)
+    b = append(b, '&quot;')
+    b = t.AppendFormat(b, RFC3339Nano)
+    b = append(b, '&quot;')
+    return b, nil
+}
+</code></pre>
+
+<p>所以在把model序列化为JSON的时候默认就会来调这个MarshalJSON方法把time.Time类型的字段都搞成这种格式，要想自定义这种格式只能重写这个接口方法，go中不允许在包外新增或重写方法 <code>cannot define new methods on non-local type[s],</code>，只能通过在外部定义别名或者内嵌结构体，再在这上面新加或重写方法。</p>
+
+<p>别名方式：</p>
+
+<pre><code class="language-go">type JSONTime time.Time
+</code></pre>
+
+<p>内嵌方式（推荐）：</p>
+
+<pre><code class="language-go">type JSONTime struct {
+    time.Time
+}
+</code></pre>
+
+<p>需要注意别名方式只能使用原始类型的字段，不能使用其方法，只重写字段的时候可以考虑使用，建议使用内嵌方式，都可以使用 <a href="https://stackoverflow.com/questions/28800672/how-to-add-new-methods-to-an-existing-type-in-go" rel="nofollow noreferrer" target="_blank">https://stackoverflow.com/questions/28800672/how-to-add-new-methods-to-an-existing-type-in-go</a></p>
+
+<p>所以我们只需定义一个内嵌time.Time的结构体，并重写MarshalJSON方法，然后在定义model的时候把time.Time类型替换为我们自己的类型即可。但是在gorm中只重写MarshalJSON是不够的，只写这个方法会在写数据库的时候会提示delete_at字段不存在，需要加上database/sql的Value和Scan方法 <a href="https://github.com/jinzhu/gorm/issues/1611#issuecomment-329654638。" rel="nofollow noreferrer" target="_blank">https://github.com/jinzhu/gorm/issues/1611#issuecomment-329654638。</a></p>
+
+<p>所以最后实现我们自己格式化的time类型JSONTime为：</p>
+
+<pre><code class="language-go">package utils
+import (
+    &quot;database/sql/driver&quot;
+    &quot;fmt&quot;
+    &quot;time&quot;
+)
+
+// JSONTime format json time field by myself
+type JSONTime struct {
+    time.Time
+}
+
+// MarshalJSON on JSONTime format Time field with %Y-%m-%d %H:%M:%S
+func (t JSONTime) MarshalJSON() ([]byte, error) {
+    formatted := fmt.Sprintf(&quot;\&quot;%s\&quot;&quot;, t.Format(&quot;2006-01-02 15:04:05&quot;))
+    return []byte(formatted), nil
+}
+
+// Value insert timestamp into mysql need this function.
+func (t JSONTime) Value() (driver.Value, error) {
+    var zeroTime time.Time
+    if t.Time.UnixNano() == zeroTime.UnixNano() {
+        return nil, nil
+    }
+    return t.Time, nil
+}
+
+// Scan valueof time.Time
+func (t *JSONTime) Scan(v interface{}) error {
+    value, ok := v.(time.Time)
+    if ok {
+        *t = JSONTime{Time: value}
+        return nil
+    }
+    return fmt.Errorf(&quot;can not convert %v to timestamp&quot;, v)
+}
+</code></pre>
+
+<p>然后重新定义自己的Model：</p>
+
+<pre><code class="language-go">type Model struct {
+    ID        uint            `gorm:&quot;primary_key&quot; json:&quot;id&quot;`
+    CreatedAt utils.JSONTime  `json:&quot;createdAt&quot;`
+    UpdatedAt utils.JSONTime  `json:&quot;updatedAt&quot;`
+}
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>WJun </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://example.com/2019/grom-datetime-format/>https://example.com/2019/grom-datetime-format/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://example.com/tags/gorm/">
+                    #gorm</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/docker-install-redis/" class="prev" rel="prev" title="docker安装redis"><i class="iconfont icon-left"></i>&nbsp;docker安装redis</a>
+         
+        
+        <a href="https://example.com/2020/nginx-https/" class="next" rel="next" title="Nginx配置域名https">Nginx配置域名https&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        <script src="https://utteranc.es/client.js"
+                repo="duduhusky/duduhusky.com"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+
+
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">WJun</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">皖ICP备19022465号 </a> |
+         
+		  <a href="/friends" rel="friends">友情链接</a>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

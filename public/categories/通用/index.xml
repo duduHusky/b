@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>通用 on duduHusky</title>
+    <link>https://example.com/categories/%E9%80%9A%E7%94%A8/</link>
+    <description>Recent content in 通用 on duduHusky</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/%E9%80%9A%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>docker安装redis</title>
+      <link>https://example.com/2019/docker-install-redis/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/docker-install-redis/</guid>
+      <description>拉取Docker上的Redis docker pull reids  启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
+   参数 说明     -p 6379:6379 宿主机端口映射docker端口   &amp;ndash;name myredis 给启动的容器命个名字   -v /path/redis.conf:/etc/redis/redis.conf 宿主机redis配置文件映射docker配置文件   -v /path/data:/data 宿主机data目录映射docker的data目录   &amp;ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server /etc/redis/redis.conf redis启动命令   &amp;ndash;appendonly yes 开启持久化     redis.</description>
+    </item>
+    
+  </channel>
+</rss>

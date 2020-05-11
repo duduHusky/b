@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="WJun">
+  
+  
+  
+  <link rel="prev" href="https://example.com/2019/centos-mysql5.7-install/" />
+  <link rel="next" href="https://example.com/2019/grom-datetime-format/" />
+  <link rel="canonical" href="https://example.com/2019/docker-install-redis/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           docker安装redis | duduHusky
+       
+  </title>
+  <meta name="title" content="docker安装redis | duduHusky">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "docker安装redis",
+    "headline" : "docker安装redis",
+    "description" : "拉取Docker上的Redis docker pull reids  启动镜像 docker run -p 6379:6379 \x26ndash;name myredis -v \/usr\/local\/docker\/redis\/redis.conf:\/etc\/redis\/redis.conf -v \/usr\/local\/docker\/redis\/data:\/data \x26ndash;privileged=true -d redis redis-server \/etc\/redis\/redis.conf \x26ndash;appendonly yes\n   参数 说明     -p 6379:6379 宿主机端口映射docker端口   \x26ndash;name myredis 给启动的容器命个名字   -v \/path\/redis.conf:\/etc\/redis\/redis.conf 宿主机redis配置文件映射docker配置文件   -v \/path\/data:\/data 宿主机data目录映射docker的data目录   \x26ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server \/etc\/redis\/redis.conf redis启动命令   \x26ndash;appendonly yes 开启持久化     redis.",
+    "inLanguage" : "en-us",
+    "author" : "WJun",
+    "creator" : "WJun",
+    "publisher": "WJun",
+    "accountablePerson" : "WJun",
+    "copyrightHolder" : "WJun",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-11 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-11 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/docker-install-redis\/",
+    "wordCount" : "59",
+    "keywords" : [ "redis","docker", "duduHusky"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">docker安装redis</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://example.com" rel="author">WJun</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-11 itemprop="datePublished">December 11, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://example.com/categories/%E9%80%9A%E7%94%A8/"> 通用 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="拉取docker上的redis">拉取Docker上的Redis</h1>
+
+<pre><code class="language-linux">docker pull reids
+</code></pre>
+
+<h1 id="启动镜像">启动镜像</h1>
+
+<p>docker run -p 6379:6379 &ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf  -v /usr/local/docker/redis/data:/data &ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &ndash;appendonly yes</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>-p 6379:6379</td>
+<td>宿主机端口映射docker端口</td>
+</tr>
+
+<tr>
+<td>&ndash;name myredis</td>
+<td>给启动的容器命个名字</td>
+</tr>
+
+<tr>
+<td>-v /path/redis.conf:/etc/redis/redis.conf</td>
+<td>宿主机redis配置文件映射docker配置文件</td>
+</tr>
+
+<tr>
+<td>-v /path/data:/data</td>
+<td>宿主机data目录映射docker的data目录</td>
+</tr>
+
+<tr>
+<td>&ndash;privileged=true</td>
+<td>容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限</td>
+</tr>
+
+<tr>
+<td>-d redis</td>
+<td>本地运行下载的redis镜像</td>
+</tr>
+
+<tr>
+<td>redis-server /etc/redis/redis.conf</td>
+<td>redis启动命令</td>
+</tr>
+
+<tr>
+<td>&ndash;appendonly yes</td>
+<td>开启持久化</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>redis.conf 文件可以在官网下载 <a href="http://download.redis.io/redis-stable/redis.conf" rel="nofollow noreferrer" target="_blank">redis.conf</a></p>
+
+<p>!!!注意: redis.conf 文件修改一定一定要注释 <code>daemonize yes</code> 这一行,如果为YES 会导致 redis 无法启动，因为后台会导致docker无任务可做而退出</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>WJun </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://example.com/2019/docker-install-redis/>https://example.com/2019/docker-install-redis/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://example.com/tags/redis/">
+                    #redis</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/centos-mysql5.7-install/" class="prev" rel="prev" title="Centos7安装Mysql5.7以上"><i class="iconfont icon-left"></i>&nbsp;Centos7安装Mysql5.7以上</a>
+         
+        
+        <a href="https://example.com/2019/grom-datetime-format/" class="next" rel="next" title="Gorm返回的JSON里时间格式">Gorm返回的JSON里时间格式&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        <script src="https://utteranc.es/client.js"
+                repo="duduhusky/duduhusky.com"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+
+
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">WJun</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">皖ICP备19022465号 </a> |
+         
+		  <a href="/friends" rel="friends">友情链接</a>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

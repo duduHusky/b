@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="WJun">
+  
+  
+  
+  <link rel="prev" href="https://example.com/2020/janusgraph-study/" />
+  
+  <link rel="canonical" href="https://example.com/2020/graph-search/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           图的遍历之深度优先搜索和广度优先搜索 | duduHusky
+       
+  </title>
+  <meta name="title" content="图的遍历之深度优先搜索和广度优先搜索 | duduHusky">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "图的遍历之深度优先搜索和广度优先搜索",
+    "headline" : "图的遍历之深度优先搜索和广度优先搜索",
+    "description" : "深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。\n它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。\n显然，深度优先搜索是一个递归的过程\n深度优先搜索图解 无向图的深度优先搜索 下面以\x26rdquo;无向图\x26rdquo;为例，来对深度优先搜索进行演示\n对上面的图G1进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问(A的邻接点)C。 \x26gt;在第1步访问A之后，接下来应该访问的是A的邻接点，即\x26rdquo;C,D,F\x26rdquo;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在\x26rdquo;D和F\x26rdquo;的前面，因此，先访问C。\n第3步： 访问(C的邻接点)B。 \x26gt;在第2步访问C之后，接下来应该访问C的邻接点，即\x26rdquo;B和D\x26rdquo;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。\n第4步： 访问(C的邻接点)D。 \x26gt;在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。\n第5步： 访问(A的邻接点)F。 \x26gt;前面已经访问了A，并且访问完了\x26rdquo;A的邻接点B的所有邻接点(包括递归的邻接点在内)\x26ldquo;；因此，此时返回到访问A的另一个邻接点F。\n第6步： 访问(F的邻接点)G。\n第7步： 访问(G的邻接点)E\n因此访问顺序是：A -\x26gt; C -\x26gt; B -\x26gt; D -\x26gt; F -\x26gt; G -\x26gt; E\n有向图的深度优先搜索 下面以\x26rdquo;有向图\x26rdquo;为例，来对深度优先搜索进行演示\n对上面的图G2进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问B。 \x26gt;在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。\n第3步： 访问C。 \x26gt;在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。\n第4步： 访问E。 \x26gt;接下来访问C的出边的另一个顶点，即顶点E。\n第5步： 访问D。 \x26gt;接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。\n第6步： 访问F。 \x26gt;接下应该回溯\x26rdquo;访问A的出边的另一个顶点F\x26rdquo;。\n第7步： 访问G。\n因此访问顺序是：A -\x26gt; B -\x26gt; C -\x26gt; E -\x26gt; D -\x26gt; F -\x26gt; G",
+    "inLanguage" : "en-us",
+    "author" : "WJun",
+    "creator" : "WJun",
+    "publisher": "WJun",
+    "accountablePerson" : "WJun",
+    "copyrightHolder" : "WJun",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-03-30 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-03-30 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2020\/graph-search\/",
+    "wordCount" : "136",
+    "keywords" : [ "算法", "duduHusky"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">duduHusky</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">图的遍历之深度优先搜索和广度优先搜索</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://example.com" rel="author">WJun</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-03-30 itemprop="datePublished">March 30, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://example.com/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="深度优先搜索介绍">深度优先搜索介绍</h1>
+
+<p>图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。</p>
+
+<p>它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。</p>
+
+<p>显然，深度优先搜索是一个递归的过程</p>
+
+<h1 id="深度优先搜索图解">深度优先搜索图解</h1>
+
+<h2 id="无向图的深度优先搜索">无向图的深度优先搜索</h2>
+
+<p>下面以&rdquo;无向图&rdquo;为例，来对深度优先搜索进行演示</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/01_1585560572562.jpg" alt="无向图" class="lazyload"><figcaption class="image-caption">无向图</figcaption></figure></p>
+
+<p>对上面的图G1进行深度优先遍历，从顶点A开始</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/02_1585560597164.jpg" alt="02" class="lazyload"><figcaption class="image-caption">02</figcaption></figure></p>
+
+<p><strong>第1步：</strong> 访问A。</p>
+
+<p><strong>第2步：</strong> 访问(A的邻接点)C。
+&gt;在第1步访问A之后，接下来应该访问的是A的邻接点，即&rdquo;C,D,F&rdquo;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在&rdquo;D和F&rdquo;的前面，因此，先访问C。</p>
+
+<p><strong>第3步：</strong> 访问(C的邻接点)B。
+&gt;在第2步访问C之后，接下来应该访问C的邻接点，即&rdquo;B和D&rdquo;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。</p>
+
+<p><strong>第4步：</strong> 访问(C的邻接点)D。
+&gt;在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。</p>
+
+<p><strong>第5步：</strong> 访问(A的邻接点)F。
+&gt;前面已经访问了A，并且访问完了&rdquo;A的邻接点B的所有邻接点(包括递归的邻接点在内)&ldquo;；因此，此时返回到访问A的另一个邻接点F。</p>
+
+<p><strong>第6步：</strong> 访问(F的邻接点)G。</p>
+
+<p><strong>第7步：</strong> 访问(G的邻接点)E</p>
+
+<p>因此访问顺序是：<strong>A -&gt; C -&gt; B -&gt; D -&gt; F -&gt; G -&gt; E</strong></p>
+
+<h2 id="有向图的深度优先搜索">有向图的深度优先搜索</h2>
+
+<p>下面以&rdquo;有向图&rdquo;为例，来对深度优先搜索进行演示</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/03_1585560597151.jpg" alt="03" class="lazyload"><figcaption class="image-caption">03</figcaption></figure></p>
+
+<p>对上面的图G2进行深度优先遍历，从顶点A开始</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/04_1585560594922.jpg" alt="04" class="lazyload"><figcaption class="image-caption">04</figcaption></figure></p>
+
+<p><strong>第1步：</strong> 访问A。</p>
+
+<p><strong>第2步：</strong> 访问B。
+&gt;在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。</p>
+
+<p><strong>第3步：</strong> 访问C。
+&gt;在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。</p>
+
+<p><strong>第4步：</strong> 访问E。
+&gt;接下来访问C的出边的另一个顶点，即顶点E。</p>
+
+<p><strong>第5步：</strong> 访问D。
+&gt;接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。</p>
+
+<p><strong>第6步：</strong> 访问F。
+&gt;接下应该回溯&rdquo;访问A的出边的另一个顶点F&rdquo;。</p>
+
+<p><strong>第7步：</strong> 访问G。</p>
+
+<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; D -&gt; F -&gt; G</strong></p>
+
+<h1 id="广度优先搜索介绍">广度优先搜索介绍</h1>
+
+<p>广度优先搜索算法(Breadth First Search)，又称为&rdquo;宽度优先搜索&rdquo;或&rdquo;横向优先搜索&rdquo;，简称BFS。</p>
+
+<p>它的思想是：从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。</p>
+
+<p>换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远，依次访问和v有路径相通且路径长度为1,2&hellip;的顶点</p>
+
+<h1 id="广度优先搜索图解">广度优先搜索图解</h1>
+
+<h2 id="无向图的广度优先搜索">无向图的广度优先搜索</h2>
+
+<p>下面以&rdquo;无向图&rdquo;为例，来对广度优先搜索进行演示。还是以上面的图G1为例进行说明</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/05_1585560594934.jpg" alt="05" class="lazyload"><figcaption class="image-caption">05</figcaption></figure></p>
+
+<p><strong>第1步：</strong> 访问A。</p>
+
+<p><strong>第2步：</strong> 依次访问C,D,F。
+&gt;在访问了A之后，接下来访问A的邻接点。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，C在&rdquo;D和F&rdquo;的前面，因此，先访问C。再访问完C之后，再依次访问D,F。</p>
+
+<p><strong>第3步：</strong> 依次访问B,G。
+&gt;在第2步访问完C,D,F之后，再依次访问它们的邻接点。首先访问C的邻接点B，再访问F的邻接点G。</p>
+
+<p><strong>第4步：</strong> 访问E。
+&gt;在第3步访问完B,G之后，再依次访问它们的邻接点。只有G有邻接点E，因此访问G的邻接点E。</p>
+
+<p>因此访问顺序是：<strong>A -&gt; C -&gt; D -&gt; F -&gt; B -&gt; G -&gt; E</strong></p>
+
+<h2 id="有向图的广度优先搜索">有向图的广度优先搜索</h2>
+
+<p>下面以&rdquo;有向图&rdquo;为例，来对广度优先搜索进行演示。还是以上面的图G2为例进行说明</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/06_1585560594905.jpg" alt="06" class="lazyload"><figcaption class="image-caption">06</figcaption></figure></p>
+
+<p><strong>第1步：</strong> 访问A。</p>
+
+<p><strong>第2步：</strong> 访问B。</p>
+
+<p><strong>第3步：</strong> 依次访问C,E,F。
+&gt;在访问了B之后，接下来访问B的出边的另一个顶点，即C,E,F。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，因此会先访问C，再依次访问E,F。</p>
+
+<p><strong>第4步：</strong> 依次访问D,G。
+&gt;在访问完C,E,F之后，再依次访问它们的出边的另一个顶点。还是按照C,E,F的顺序访问，C的已经全部访问过了，那么就只剩下E,F；先访问E的邻接点D，再访问F的邻接点G。</p>
+
+<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; F -&gt; D -&gt; G</strong></p>
+
+<hr />
+
+<blockquote>
+<p>转自<a href="https://www.cnblogs.com/skywang12345/p/3711483.html" rel="nofollow noreferrer" target="_blank">skywang12345</a></p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>WJun </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://example.com/2020/graph-search/>https://example.com/2020/graph-search/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://example.com/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2020/janusgraph-study/" class="prev" rel="prev" title="JanusGraph使用笔记"><i class="iconfont icon-left"></i>&nbsp;JanusGraph使用笔记</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <script src="https://utteranc.es/client.js"
+                repo="duduhusky/duduhusky.com"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+
+
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">WJun</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">皖ICP备19022465号 </a> |
+         
+		  <a href="/friends" rel="friends">友情链接</a>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
