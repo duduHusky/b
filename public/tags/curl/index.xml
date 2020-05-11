@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>curl on duduHusky</title>
-    <link>https://example.com/tags/curl/</link>
+    <link>https://duduhusky.com/tags/curl/</link>
     <description>Recent content in curl on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://duduhusky.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>在服务器中CURL命令下载文件</title>
-      <link>https://example.com/2019/curl-download-file/</link>
+      <link>https://duduhusky.com/2019/curl-download-file/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/curl-download-file/</guid>
+      <guid>https://duduhusky.com/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
 curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download  下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg

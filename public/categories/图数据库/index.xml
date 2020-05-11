@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>图数据库 on duduHusky</title>
-    <link>https://example.com/categories/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <link>https://duduhusky.com/categories/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 图数据库 on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Mar 2020 14:39:59 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://duduhusky.com/categories/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JanusGraph使用笔记</title>
-      <link>https://example.com/2020/janusgraph-study/</link>
+      <link>https://duduhusky.com/2020/janusgraph-study/</link>
       <pubDate>Thu, 05 Mar 2020 14:39:59 +0800</pubDate>
       
-      <guid>https://example.com/2020/janusgraph-study/</guid>
+      <guid>https://duduhusky.com/2020/janusgraph-study/</guid>
       <description>下载源码文件(如果你使用Docker也是可以的) 下载地址
 解压下载的文件夹, 比如: janusgraph-0.4.1-hadoop2.zip 配置 例如：存储后端使用 Cassandra, 索引使用es,修改janusgraph-cql-es.properties vim janusgraph-0.4.1-hadoop2/conf/janusgraph-cql-es.properties
 配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址 storage.hostname=host:port # ES服务的节点地址及端口 index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt;  命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;) &amp;gt;配置文件路径写自己机器上的位置

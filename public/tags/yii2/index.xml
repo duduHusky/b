@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yii2 on duduHusky</title>
-    <link>https://example.com/tags/yii2/</link>
+    <link>https://duduhusky.com/tags/yii2/</link>
     <description>Recent content in yii2 on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/yii2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://duduhusky.com/tags/yii2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>yii2数据库查询结果字段类型的问题</title>
-      <link>https://example.com/2019/yii2-mysql-associate-type/</link>
+      <link>https://duduhusky.com/2019/yii2-mysql-associate-type/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/yii2-mysql-associate-type/</guid>
+      <guid>https://duduhusky.com/2019/yii2-mysql-associate-type/</guid>
       <description>yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。
 原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。
 &amp;lt;?php return [ &#39;class&#39; =&amp;gt; &#39;yii\db\Connection&#39;, &#39;dsn&#39; =&amp;gt; &#39;mysql:host=localhost;dbname=yii2basic&#39;, &#39;username&#39; =&amp;gt; &#39;root&#39;, &#39;password&#39; =&amp;gt; &#39;123456&#39;, &#39;charset&#39; =&amp;gt; &#39;utf8&#39;, &#39;tablePrefix&#39; =&amp;gt; &#39;yii_&#39;, &#39;attributes&#39; =&amp;gt; [ PDO::ATTR_STRINGIFY_FETCHES =&amp;gt; false, PDO::ATTR_EMULATE_PREPARES =&amp;gt; false, ] // Schema cache options (for production environment) //&#39;enableSchemaCache&#39; =&amp;gt; true, //&#39;schemaCacheDuration&#39; =&amp;gt; 60, //&#39;schemaCache&#39; =&amp;gt; &#39;cache&#39;, ];  yii2 在数据库组件配置中添加attributes的两项配置即可

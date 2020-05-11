@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NLP on duduHusky</title>
-    <link>https://example.com/categories/nlp/</link>
+    <link>https://duduhusky.com/categories/nlp/</link>
     <description>Recent content in NLP on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Feb 2020 14:43:33 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://duduhusky.com/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NLP的词性标注</title>
-      <link>https://example.com/2020/nlp-part-of-speech/</link>
+      <link>https://duduhusky.com/2020/nlp-part-of-speech/</link>
       <pubDate>Sat, 01 Feb 2020 14:43:33 +0800</pubDate>
       
-      <guid>https://example.com/2020/nlp-part-of-speech/</guid>
+      <guid>https://duduhusky.com/2020/nlp-part-of-speech/</guid>
       <description> 是什么？ 对每个词或词语打词类标签，是一个经典的序列标注问题。eg：形容词、动词、名词等。有助于在后面的处理中融入更多有用的语言信息
  词性标注不是非必需的。比如，常见的文本分类就不用关心词性问题，但是类似情感分析、知识推理却是需要的，下图是常见的中文词性整理
  对照表：
