@@ -18,8 +18,8 @@
       
       <guid>https://duduhusky.com/2019/grom-datetime-format/</guid>
       <description>Golang中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model。 Gorm是这样定义的：
-type Model struct { ID uint `gorm:&amp;quot;primary_key&amp;quot;` CreatedAt time.Time UpdatedAt time.Time }  当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式
-const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quot;Mon Jan _2 15:04:05 MST 2006&amp;quot; RubyDate = &amp;quot;Mon Jan 02 15:04:05 -0700 2006&amp;quot; RFC822 = &amp;quot;02 Jan 06 15:04 MST&amp;quot; RFC822Z = &amp;quot;02 Jan 06 15:04 -0700&amp;quot; // RFC822 with numeric zone RFC850 = &amp;quot;Monday, 02-Jan-06 15:04:05 MST&amp;quot; RFC1123 = &amp;quot;Mon, 02 Jan 2006 15:04:05 MST&amp;quot; RFC1123Z = &amp;quot;Mon, 02 Jan 2006 15:04:05 -0700&amp;quot; // RFC1123 with numeric zone RFC3339 = &amp;quot;2006-01-02T15:04:05Z07:00&amp;quot; RFC3339Nano = &amp;quot;2006-01-02T15:04:05.</description>
+type Model struct { ID uint `gorm:&amp;#34;primary_key&amp;#34;` CreatedAt time.Time UpdatedAt time.Time } 当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式
+const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;Mon Jan _2 15:04:05 MST 2006&amp;#34; RubyDate = &amp;#34;Mon Jan 02 15:04:05 -0700 2006&amp;#34; RFC822 = &amp;#34;02 Jan 06 15:04 MST&amp;#34; RFC822Z = &amp;#34;02 Jan 06 15:04 -0700&amp;#34; // RFC822 with numeric zone  RFC850 = &amp;#34;Monday, 02-Jan-06 15:04:05 MST&amp;#34; RFC1123 = &amp;#34;Mon, 02 Jan 2006 15:04:05 MST&amp;#34; RFC1123Z = &amp;#34;Mon, 02 Jan 2006 15:04:05 -0700&amp;#34; // RFC1123 with numeric zone  RFC3339 = &amp;#34;2006-01-02T15:04:05Z07:00&amp;#34; RFC3339Nano = &amp;#34;2006-01-02T15:04:05.</description>
     </item>
     
   </channel>

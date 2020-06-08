@@ -6,10 +6,19 @@
     <description>Recent content in Categories on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate>
     
 	<atom:link href="https://duduhusky.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>人工智能</title>
+      <link>https://duduhusky.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
+      <pubDate>Fri, 05 Jun 2020 11:47:25 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>算法</title>

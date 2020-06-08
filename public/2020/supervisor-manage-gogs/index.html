@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "使用Supervisor管理gogs",
     "headline" : "使用Supervisor管理gogs",
-    "description" : "启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:\n2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: \x27gogs\x27 with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: \x27gogs\x27 with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: \x27gogs\x27 with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: \x27gogs\x27 with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly  搜索后找到方法： 去掉gogs.",
+    "description" : "启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:\n2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: \x27gogs\x27 with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: \x27gogs\x27 with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: \x27gogs\x27 with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: \x27gogs\x27 with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly 搜索后找到方法： 去掉gogs.",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -149,8 +150,7 @@
           <p>启动<code>supervisord</code>命令后
 查看管理进程运行状态<code>supervisorctl status</code>
 发现出现问题:</p>
-
-<pre><code class="language-linux">2019-10-28 11:21:33,510 INFO supervisord started with pid 6613
+<pre><code class="language-linux" data-lang="linux">2019-10-28 11:21:33,510 INFO supervisord started with pid 6613
 2019-10-28 11:21:34,513 INFO spawned: 'gogs' with pid 6615
 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected)
 2019-10-28 11:21:35,520 INFO spawned: 'gogs' with pid 6617
@@ -160,9 +160,7 @@
 2019-10-28 11:21:40,537 INFO spawned: 'gogs' with pid 6623
 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected)
 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly
-</code></pre>
-
-<p>搜索后找到方法：
+</code></pre><p>搜索后找到方法：
 去掉<code>gogs.conf</code>中的<code>directory=/xxx/xxx</code> 配置即可</p>
 
     </div>

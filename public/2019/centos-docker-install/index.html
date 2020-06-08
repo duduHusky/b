@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -146,23 +147,15 @@
           
           
 
-          
-
-<h2 id="设置yum源">设置yum源</h2>
-
+          <h2 id="设置yum源">设置yum源</h2>
 <p><code>yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</code></p>
-
 <blockquote>
 <p>这一步如果提示 <code>bash: yum-config-manager not found</code>
 是因为系统默认没有安装这个命令，这个命令在yum-utils 包里，可以通过命令<code>yum -y install yum-utils</code> 安装就可以了</p>
 </blockquote>
-
-<h2 id="可以查看所有仓库中所有docker版本-并选择特定版本安装">可以查看所有仓库中所有docker版本，并选择特定版本安装</h2>
-
+<h2 id="可以查看所有仓库中所有docker版本并选择特定版本安装">可以查看所有仓库中所有docker版本，并选择特定版本安装</h2>
 <p><code>yum list docker-ce --showduplicates | sort -r</code></p>
-
 <h2 id="安装docker">安装docker</h2>
-
 <p><code>yum install docker-ce</code></p>
 
     </div>

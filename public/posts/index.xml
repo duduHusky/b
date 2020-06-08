@@ -6,10 +6,29 @@
     <description>Recent content in Posts on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate>
     
 	<atom:link href="https://duduhusky.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)</title>
+      <link>https://duduhusky.com/2020/nlp_measure/</link>
+      <pubDate>Fri, 05 Jun 2020 11:47:25 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/2020/nlp_measure/</guid>
+      <description>一个很简单的例子： 我们训练了一个识猫模型，送一张图片给模型，模型就能告诉你该图片是否有猫。目标是找出所有有猫图片。
+下面送100张有猫的图片，和100张无猫的图片给模型。假设预测的结果如下：
+   例子 图片有猫 图片没有猫     模型识别有猫（Positive） 90 5   模型识别没有猫（Negative） 10 95    下面定义四个参数：
+TP(True Positives): 模型识别有猫，实际图片有猫，在例子中是90
+FP(False Positives): 模型识别有猫，实际图片没猫，在例子中是5
+TN(True Negatives): 模型识别没猫，实际图片没猫，在例子中是95
+FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
+1、$$Precision=\frac{TP}{TP+FP}$$ ：表示 $$\color{red}{正确被识别到有猫的图片}$$ 占$$\color{red}{所有被识别到有猫的图片}$$的比例。该例为：$$\frac{90}{90+5}$$
+2、$$Recall=\frac{TP}{TP+FN}$$：表示$$\color{red}{正确被识别到有猫的图片}$$ 占$$\color{red}{所有含有猫的图片}$$的比例。该例为：$$\frac{90}{90+10}$$
+3、$$Accuracy=\frac{TP+TN}{TP+FP+TN+FN}$$：表示$$\color{red}{模型预测正确}$$的比例。该例为：$$\frac{90+95}{90+5+95+10}$$
+4、$$F1=\frac{2*Pre*Rec}{Pre+Rec}=\frac{2*TP}{2*TP+FP+FN}$$：表示精确值和召回率的调和均值</description>
+    </item>
     
     <item>
       <title>图的遍历之深度优先搜索和广度优先搜索</title>
@@ -20,26 +39,30 @@
       <description>深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。
 它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。
 显然，深度优先搜索是一个递归的过程
-深度优先搜索图解 无向图的深度优先搜索 下面以&amp;rdquo;无向图&amp;rdquo;为例，来对深度优先搜索进行演示
+深度优先搜索图解 无向图的深度优先搜索 下面以&amp;quot;无向图&amp;quot;为例，来对深度优先搜索进行演示
 对上面的图G1进行深度优先遍历，从顶点A开始
 第1步： 访问A。
-第2步： 访问(A的邻接点)C。 &amp;gt;在第1步访问A之后，接下来应该访问的是A的邻接点，即&amp;rdquo;C,D,F&amp;rdquo;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在&amp;rdquo;D和F&amp;rdquo;的前面，因此，先访问C。
-第3步： 访问(C的邻接点)B。 &amp;gt;在第2步访问C之后，接下来应该访问C的邻接点，即&amp;rdquo;B和D&amp;rdquo;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。
-第4步： 访问(C的邻接点)D。 &amp;gt;在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。
-第5步： 访问(A的邻接点)F。 &amp;gt;前面已经访问了A，并且访问完了&amp;rdquo;A的邻接点B的所有邻接点(包括递归的邻接点在内)&amp;ldquo;；因此，此时返回到访问A的另一个邻接点F。
-第6步： 访问(F的邻接点)G。
+第2步： 访问(A的邻接点)C。
+ 在第1步访问A之后，接下来应该访问的是A的邻接点，即&amp;quot;C,D,F&amp;quot;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在&amp;quot;D和F&amp;quot;的前面，因此，先访问C。
+ 第3步： 访问(C的邻接点)B。
+ 在第2步访问C之后，接下来应该访问C的邻接点，即&amp;quot;B和D&amp;quot;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。
+ 第4步： 访问(C的邻接点)D。
+ 在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。
+ 第5步： 访问(A的邻接点)F。
+ 前面已经访问了A，并且访问完了&amp;quot;A的邻接点B的所有邻接点(包括递归的邻接点在内)&amp;quot;；因此，此时返回到访问A的另一个邻接点F。
+ 第6步： 访问(F的邻接点)G。
 第7步： 访问(G的邻接点)E
 因此访问顺序是：A -&amp;gt; C -&amp;gt; B -&amp;gt; D -&amp;gt; F -&amp;gt; G -&amp;gt; E
-有向图的深度优先搜索 下面以&amp;rdquo;有向图&amp;rdquo;为例，来对深度优先搜索进行演示
+有向图的深度优先搜索 下面以&amp;quot;有向图&amp;quot;为例，来对深度优先搜索进行演示
 对上面的图G2进行深度优先遍历，从顶点A开始
 第1步： 访问A。
-第2步： 访问B。 &amp;gt;在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。
-第3步： 访问C。 &amp;gt;在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。
-第4步： 访问E。 &amp;gt;接下来访问C的出边的另一个顶点，即顶点E。
-第5步： 访问D。 &amp;gt;接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。
-第6步： 访问F。 &amp;gt;接下应该回溯&amp;rdquo;访问A的出边的另一个顶点F&amp;rdquo;。
-第7步： 访问G。
-因此访问顺序是：A -&amp;gt; B -&amp;gt; C -&amp;gt; E -&amp;gt; D -&amp;gt; F -&amp;gt; G</description>
+第2步： 访问B。
+ 在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。
+ 第3步： 访问C。
+ 在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。
+ 第4步： 访问E。
+ 接下来访问C的出边的另一个顶点，即顶点E。
+ 第5步： 访问D。</description>
     </item>
     
     <item>
@@ -50,8 +73,9 @@
       <guid>https://duduhusky.com/2020/janusgraph-study/</guid>
       <description>下载源码文件(如果你使用Docker也是可以的) 下载地址
 解压下载的文件夹, 比如: janusgraph-0.4.1-hadoop2.zip 配置 例如：存储后端使用 Cassandra, 索引使用es,修改janusgraph-cql-es.properties vim janusgraph-0.4.1-hadoop2/conf/janusgraph-cql-es.properties
-配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址 storage.hostname=host:port # ES服务的节点地址及端口 index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt;  命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;) &amp;gt;配置文件路径写自己机器上的位置
-创建顶点标签 mgmt = graph.openManagement(); mgmt.makeVertexLabel(&#39;person&#39;).make(); mgmt.makeVertexLabel(&#39;country&#39;).make(); mgmt.makeVertexLabel(&#39;weapon&#39;).make(); mgmt.getVertexLabels(); mgmt.commit()  创建边标签 mgmt = graph.openManagement(); brother = mgmt.makeEdgeLabel(&amp;quot;brother&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;battled&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;belongs&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;use&amp;quot;).make(); mgmt.getRelationTypes(EdgeLabel.class); mgmt.commit()  创建属性 mgmt = graph.openManagement(); name = mgmt.makePropertyKey(&#39;name&#39;).dataType(String.class).cardinality(Cardinality.SET).make(); mgmt.buildIndex(&#39;nameUnique&#39;, Vertex.class).addKey(name).unique().buildCompositeIndex(); age = mgmt.makePropertyKey(&amp;quot;age&amp;quot;).dataType(Integer.class).make(); mgmt.buildIndex(&#39;age2&#39;, Vertex.class).addKey(age).buildMixedIndex(&amp;quot;sanguo&amp;quot;); mgmt.getGraphIndexes(Vertex.class); mgmt.commit()&amp;lt;i&amp;gt;  添加顶点 g = graph.traversal() liubei = g.</description>
+配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址 storage.hostname=host:port # ES服务的节点地址及端口 index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt; 命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;)
+ 配置文件路径写自己机器上的位置
+ 创建顶点标签 mgmt = graph.openManagement(); mgmt.makeVertexLabel(&#39;person&#39;).make(); mgmt.makeVertexLabel(&#39;country&#39;).make(); mgmt.makeVertexLabel(&#39;weapon&#39;).make(); mgmt.getVertexLabels(); mgmt.commit() 创建边标签 mgmt = graph.openManagement(); brother = mgmt.makeEdgeLabel(&amp;quot;brother&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;battled&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;belongs&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;use&amp;quot;).make(); mgmt.getRelationTypes(EdgeLabel.class); mgmt.commit() 创建属性 mgmt = graph.openManagement(); name = mgmt.makePropertyKey(&#39;name&#39;).dataType(String.class).cardinality(Cardinality.SET).make(); mgmt.buildIndex(&#39;nameUnique&#39;, Vertex.class).addKey(name).unique().buildCompositeIndex(); age = mgmt.makePropertyKey(&amp;quot;age&amp;quot;).dataType(Integer.class).make(); mgmt.buildIndex(&#39;age2&#39;, Vertex.class).addKey(age).buildMixedIndex(&amp;quot;sanguo&amp;quot;); mgmt.getGraphIndexes(Vertex.class); mgmt.commit()&amp;lt;i&amp;gt; 添加顶点 g = graph.traversal() liubei = g.addV(&amp;quot;person&amp;quot;).property(&#39;name&#39;,&#39;刘备&#39;).property(&#39;age&#39;,45); guanyu = g.</description>
     </item>
     
     <item>
@@ -60,10 +84,10 @@
       <pubDate>Sat, 01 Feb 2020 14:43:33 +0800</pubDate>
       
       <guid>https://duduhusky.com/2020/nlp-part-of-speech/</guid>
-      <description> 是什么？ 对每个词或词语打词类标签，是一个经典的序列标注问题。eg：形容词、动词、名词等。有助于在后面的处理中融入更多有用的语言信息
+      <description>是什么？ 对每个词或词语打词类标签，是一个经典的序列标注问题。eg：形容词、动词、名词等。有助于在后面的处理中融入更多有用的语言信息
  词性标注不是非必需的。比如，常见的文本分类就不用关心词性问题，但是类似情感分析、知识推理却是需要的，下图是常见的中文词性整理
  对照表：
-   代码 名称 说明 举例     a 形容词 取英语形容词adjective的第1个字母 最/d 大/a 的/u   ad 副形词 直接作状语的形容词.形容词代码a和副词代码d并在一起 一定/d 能够/v 顺利/ad 实现/v 。/w   ag 形语素 形容词性语素。形容词代码为a，语素代码ｇ前面置以a 喜/v 煞/ag 人/n   an 名形词 具有名词功能的形容词。形容词代码a和名词代码n并在一起 人民/n 的/u 根本/a 利益/n 和/c 国家/n 的/u 安稳/an 。/w   b 区别词 取汉字“别”的声母 副/b 书记/n 王/nr 思齐/nr   c 连词 取英语连词conjunction的第1个字母 全军/n 和/c 武警/n 先进/a 典型/n 代表/n   d 副词 取adverb的第2个字母，因其第1个字母已用于形容词 两侧/f 台柱/n 上/ 分别/d 雄踞/v 着/u   dg 副语素  副词性语素。副词代码为d，语素代码ｇ前面置以d 用/v 不/d 甚/dg 流利/a 的/u 中文/nz 主持/v 节目/n 。/w   e 叹词 取英语叹词exclamation的第1个字母 嗬/e ！/w   f 方位词 取汉字“方” 的声母 从/p 一/m 大/a 堆/q 档案/n 中/f 发现/v 了/u   g 语素 绝大多数语素都能作为合成词的“词根”，取汉字“根”的声母 例如dg 或ag   h 前接成分 取英语head的第1个字母 目前/t 各种/r 非/h 合作制/n 的/u 农产品/n   i 成语 取英语成语idiom的第1个字母 提高/v 农民/n 讨价还价/i 的/u 能力/n 。/w    j 简称略语 取汉字“简”的声母 民主/ad 选举/v 村委会/j 的/u 工作/vn   k 后接成分   权责/n 明确/a 的/u 逐级/d 授权/v 制/k   l 习用语 习用语尚未成为成语，有点“临时性”，取“临”的声母 是/v 建立/v 社会主义/n 市场经济/n 体制/n 的/u 重要/a 组成部分/l 。/w   m 数词 取英语numeral的第3个字母，n，u已有他用 科学技术/n 是/v 第一/m 生产力/n   n 名词 取英语名词noun的第1个字母 希望/v 双方/n 在/p 市政/n 规划/vn   ng 名语素 名词性语素。名词代码为n，语素代码ｇ前面置以n 就此/d 分析/v 时/Ng 认为/v   nr 人名 名词代码n和“人(ren)”的声母并在一起 建设部/nt 部长/n 侯/nr 捷/nr   ns 地名 名词代码n和处所词代码s并在一起 北京/ns 经济/n 运行/vn 态势/n 喜人/a   nt 机构团体 “团”的声母为t，名词代码n和t并在一起 [冶金/n 工业部/n 洛阳/ns 耐火材料/l 研究院/n]nt   nx 字母专名   ＡＴＭ/nx 交换机/n   nz 其他专名 “专”的声母的第1个字母为z，名词代码n和z并在一起 德士古/nz 公司/n   o 拟声词 取英语拟声词onomatopoeia的第1个字母 汩汩/o 地/u 流/v 出来/v   p 介词 取英语介词prepositional的第1个字母 往/p 基层/n 跑/v 。/w   q 量词 取英语quantity的第1个字母 不止/v 一/m 次/q 地/u 听到/v ，/w   r 代词 取英语代词pronoun的第2个字母,因p已用于介词 有些/r 部门/n   s 处所词 取英语space的第1个字母 移居/v 海外/s 。/w   t 时间词 取英语time的第1个字母 当前/t 经济/n 社会/n 情况/n   tg 时语素 时间词性语素。时间词代码为t,在语素的代码g前面置以t 秋/Tg 冬/tg 连/d 旱/a    u 助词 取英语助词auxiliary 的第2个字母,因a已用于形容词 工作/vn 的/u 政策/n   ud 结构助词   有/v 心/n 栽/v 得/ud 梧桐树/n   ug 时态助词   你/r 想/v 过/ug 没有/v   uj 结构助词的   迈向/v 充满/v 希望/n 的/uj 新/a 世纪/n   ul 时态助词了   完成/v 了/ ul   uv 结构助词地   满怀信心/l 地/uv 开创/v 新/a 的/u 业绩/n   uz 时态助词着   眼看/v 着/uz   v 动词   举行/v 老/a 干部/n 迎春/vn 团拜会/n   vd 副动词   强调/vd 指出/v   vg 动语素 动词性语素。动词代码为v。在语素的代码g前面置以V 做好/v 尊/vg 干/j 爱/v 兵/n 工作/vn   vn 名动词  指具有名词功能的动词。动词和名词的代码并在一起 股份制/n 这种/r 企业/n 组织/vn 形式/n ，/w   w 标点符号   生产/v 的/u ５Ｇ/nx 、/w ８Ｇ/nx 型/k 燃气/n 热水器/n   x 非语素字 非语素字只是一个符号，字母x通常用于代表未知数、符号     y 语气词 取汉字“语”的声母 已经/d ３０/m 多/m 年/q 了/y 。/w   z 状态词 取汉字“状”的声母的前一个字母 势头/n 依然/z 强劲/a ；/w    </description>
+   代码 名称 说明 举例     a 形容词 取英语形容词adjective的第1个字母 最/d 大/a 的/u   ad 副形词 直接作状语的形容词.形容词代码a和副词代码d并在一起 一定/d 能够/v 顺利/ad 实现/v 。/w   ag 形语素 形容词性语素。形容词代码为a，语素代码ｇ前面置以a 喜/v 煞/ag 人/n   an 名形词 具有名词功能的形容词。形容词代码a和名词代码n并在一起 人民/n 的/u 根本/a 利益/n 和/c 国家/n 的/u 安稳/an 。/w   b 区别词 取汉字“别”的声母 副/b 书记/n 王/nr 思齐/nr   c 连词 取英语连词conjunction的第1个字母 全军/n 和/c 武警/n 先进/a 典型/n 代表/n   d 副词 取adverb的第2个字母，因其第1个字母已用于形容词 两侧/f 台柱/n 上/ 分别/d 雄踞/v 着/u   dg 副语素  副词性语素。副词代码为d，语素代码ｇ前面置以d 用/v 不/d 甚/dg 流利/a 的/u 中文/nz 主持/v 节目/n 。/w   e 叹词 取英语叹词exclamation的第1个字母 嗬/e ！/w   f 方位词 取汉字“方” 的声母 从/p 一/m 大/a 堆/q 档案/n 中/f 发现/v 了/u   g 语素 绝大多数语素都能作为合成词的“词根”，取汉字“根”的声母 例如dg 或ag   h 前接成分 取英语head的第1个字母 目前/t 各种/r 非/h 合作制/n 的/u 农产品/n   i 成语	取英语成语idiom的第1个字母 提高/v 农民/n 讨价还价/i 的/u 能力/n 。/w    j 简称略语 取汉字“简”的声母 民主/ad 选举/v 村委会/j 的/u 工作/vn   k 后接成分   权责/n 明确/a 的/u 逐级/d 授权/v 制/k   l 习用语 习用语尚未成为成语，有点“临时性”，取“临”的声母 是/v 建立/v 社会主义/n 市场经济/n 体制/n 的/u 重要/a 组成部分/l 。/w   m 数词 取英语numeral的第3个字母，n，u已有他用 科学技术/n 是/v 第一/m 生产力/n   n 名词 取英语名词noun的第1个字母 希望/v 双方/n 在/p 市政/n 规划/vn   ng 名语素 名词性语素。名词代码为n，语素代码ｇ前面置以n 就此/d 分析/v 时/Ng 认为/v   nr 人名 名词代码n和“人(ren)”的声母并在一起 建设部/nt 部长/n 侯/nr 捷/nr   ns 地名 名词代码n和处所词代码s并在一起 北京/ns 经济/n 运行/vn 态势/n 喜人/a   nt 机构团体 “团”的声母为t，名词代码n和t并在一起 [冶金/n 工业部/n 洛阳/ns 耐火材料/l 研究院/n]nt   nx 字母专名   ＡＴＭ/nx 交换机/n   nz 其他专名 “专”的声母的第1个字母为z，名词代码n和z并在一起 德士古/nz 公司/n   o 拟声词 取英语拟声词onomatopoeia的第1个字母 汩汩/o 地/u 流/v 出来/v   p 介词 取英语介词prepositional的第1个字母 往/p 基层/n 跑/v 。/w   q 量词 取英语quantity的第1个字母 不止/v 一/m 次/q 地/u 听到/v ，/w   r 代词 取英语代词pronoun的第2个字母,因p已用于介词 有些/r 部门/n   s 处所词 取英语space的第1个字母 移居/v 海外/s 。/w   t 时间词 取英语time的第1个字母 当前/t 经济/n 社会/n 情况/n   tg 时语素 时间词性语素。时间词代码为t,在语素的代码g前面置以t	秋/Tg 冬/tg 连/d 旱/a    u 助词 取英语助词auxiliary 的第2个字母,因a已用于形容词 工作/vn 的/u 政策/n   ud 结构助词   有/v 心/n 栽/v 得/ud 梧桐树/n   ug 时态助词   你/r 想/v 过/ug 没有/v   uj 结构助词的   迈向/v 充满/v 希望/n 的/uj 新/a 世纪/n   ul 时态助词了   完成/v 了/ ul   uv 结构助词地   满怀信心/l 地/uv 开创/v 新/a 的/u 业绩/n   uz 时态助词着   眼看/v 着/uz   v 动词   举行/v 老/a 干部/n 迎春/vn 团拜会/n   vd 副动词   强调/vd 指出/v   vg 动语素 动词性语素。动词代码为v。在语素的代码g前面置以V 做好/v 尊/vg 干/j 爱/v 兵/n 工作/vn   vn 名动词  指具有名词功能的动词。动词和名词的代码并在一起 股份制/n 这种/r 企业/n 组织/vn 形式/n ，/w   w 标点符号   生产/v 的/u ５Ｇ/nx 、/w ８Ｇ/nx 型/k 燃气/n 热水器/n   x 非语素字 非语素字只是一个符号，字母x通常用于代表未知数、符号     y 语气词 取汉字“语”的声母 已经/d ３０/m 多/m 年/q 了/y 。/w   z 状态词 取汉字“状”的声母的前一个字母 势头/n 依然/z 强劲/a ；/w    </description>
     </item>
     
     <item>
@@ -84,7 +108,7 @@
       
       <guid>https://duduhusky.com/2020/supervisor-manage-gogs/</guid>
       <description>启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:
-2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly  搜索后找到方法： 去掉gogs.</description>
+2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly 搜索后找到方法： 去掉gogs.</description>
     </item>
     
     <item>
@@ -93,7 +117,7 @@
       <pubDate>Wed, 01 Jan 2020 14:48:52 +0800</pubDate>
       
       <guid>https://duduhusky.com/2020/nginx-https/</guid>
-      <description>server { listen 443 ssl; server_name www.example.com; #设置长连接 keepalive_timeout 70; #HSTS策略 add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains; preload&amp;quot; always; #证书文件 ssl_certificate www.example.com.crt; #私钥文件 ssl_certificate_key www.example.com.key; #优先采取服务器算法 ssl_prefer_server_ciphers on; #使用DH文件 ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法 ssl_ciphers &amp;quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4&amp;quot;; #减少点击劫持 add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型 add_header X-Content-Type-Options nosniff; #防XSS攻擊 add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https://XXX was loaded over HTTPS, but requested an insecure</description>
+      <description>server { listen 443 ssl; server_name www.example.com; #设置长连接  keepalive_timeout 70; #HSTS策略  add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubDomains; preload&amp;#34; always; #证书文件  ssl_certificate www.example.com.crt; #私钥文件  ssl_certificate_key www.example.com.key; #优先采取服务器算法  ssl_prefer_server_ciphers on; #使用DH文件  ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法  ssl_ciphers &amp;#34;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4&amp;#34;; #减少点击劫持  add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型  add_header X-Content-Type-Options nosniff; #防XSS攻擊  add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https://XXX was loaded over HTTPS, but requested an insecure</description>
     </item>
     
     <item>
@@ -103,8 +127,8 @@
       
       <guid>https://duduhusky.com/2019/grom-datetime-format/</guid>
       <description>Golang中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model。 Gorm是这样定义的：
-type Model struct { ID uint `gorm:&amp;quot;primary_key&amp;quot;` CreatedAt time.Time UpdatedAt time.Time }  当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式
-const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quot;Mon Jan _2 15:04:05 MST 2006&amp;quot; RubyDate = &amp;quot;Mon Jan 02 15:04:05 -0700 2006&amp;quot; RFC822 = &amp;quot;02 Jan 06 15:04 MST&amp;quot; RFC822Z = &amp;quot;02 Jan 06 15:04 -0700&amp;quot; // RFC822 with numeric zone RFC850 = &amp;quot;Monday, 02-Jan-06 15:04:05 MST&amp;quot; RFC1123 = &amp;quot;Mon, 02 Jan 2006 15:04:05 MST&amp;quot; RFC1123Z = &amp;quot;Mon, 02 Jan 2006 15:04:05 -0700&amp;quot; // RFC1123 with numeric zone RFC3339 = &amp;quot;2006-01-02T15:04:05Z07:00&amp;quot; RFC3339Nano = &amp;quot;2006-01-02T15:04:05.</description>
+type Model struct { ID uint `gorm:&amp;#34;primary_key&amp;#34;` CreatedAt time.Time UpdatedAt time.Time } 当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式
+const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;Mon Jan _2 15:04:05 MST 2006&amp;#34; RubyDate = &amp;#34;Mon Jan 02 15:04:05 -0700 2006&amp;#34; RFC822 = &amp;#34;02 Jan 06 15:04 MST&amp;#34; RFC822Z = &amp;#34;02 Jan 06 15:04 -0700&amp;#34; // RFC822 with numeric zone  RFC850 = &amp;#34;Monday, 02-Jan-06 15:04:05 MST&amp;#34; RFC1123 = &amp;#34;Mon, 02 Jan 2006 15:04:05 MST&amp;#34; RFC1123Z = &amp;#34;Mon, 02 Jan 2006 15:04:05 -0700&amp;#34; // RFC1123 with numeric zone  RFC3339 = &amp;#34;2006-01-02T15:04:05Z07:00&amp;#34; RFC3339Nano = &amp;#34;2006-01-02T15:04:05.</description>
     </item>
     
     <item>
@@ -113,7 +137,7 @@ const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quo
       <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://duduhusky.com/2019/docker-install-redis/</guid>
-      <description>拉取Docker上的Redis docker pull reids  启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
+      <description>拉取Docker上的Redis docker pull reids 启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
    参数 说明     -p 6379:6379 宿主机端口映射docker端口   &amp;ndash;name myredis 给启动的容器命个名字   -v /path/redis.conf:/etc/redis/redis.conf 宿主机redis配置文件映射docker配置文件   -v /path/data:/data 宿主机data目录映射docker的data目录   &amp;ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server /etc/redis/redis.conf redis启动命令   &amp;ndash;appendonly yes 开启持久化     redis.</description>
     </item>
     
@@ -124,17 +148,16 @@ const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quo
       
       <guid>https://duduhusky.com/2019/centos-mysql5.7-install/</guid>
       <description>卸载原系统中的mariadb…… 首先执行命令rpm -qa|grep mariadb查看是否有mariadb的安装包，没有可以无视 接下来，执行 rpm -e &amp;ndash;nodeps mariadb-libs删除它
- 下载mysql5.7安装包 1.前往官方网站复制yum源链接Mysql官网 执行wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm（即你复制的下载链接）进行下载
- 进行yum源安装 执行rpm -ivh mysql80-community-release-el7-1.noarch.rpm命令 接下来可以通过yum repolist all | grep mysql查看yum源中的mysql安装包
- 进行mysql安装 可以看到yum源中默认启用的安装包版本为MySQL8.0，如果需要切换为5.7，需要运行以下命令
-yum-config-manager --disable mysql80-community yum-config-manager --enable mysql57-community   注意：yum-config-manager默认使用的是python2版本环境，如果用户使用这个命令时报错，可能是因为当前默认python版本为python3版本。需要在/bin/yum-config-manager文件中修改文件头#!/usr/bin/python -tt为#!/usr/bin/python2 -tt
+  下载mysql5.7安装包 1.前往官方网站复制yum源链接Mysql官网 执行wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm（即你复制的下载链接）进行下载
+  进行yum源安装 执行rpm -ivh mysql80-community-release-el7-1.noarch.rpm命令 接下来可以通过yum repolist all | grep mysql查看yum源中的mysql安装包
+  进行mysql安装 可以看到yum源中默认启用的安装包版本为MySQL8.0，如果需要切换为5.7，需要运行以下命令
+yum-config-manager --disable mysql80-community yum-config-manager --enable mysql57-community  注意：yum-config-manager默认使用的是python2版本环境，如果用户使用这个命令时报错，可能是因为当前默认python版本为python3版本。需要在/bin/yum-config-manager文件中修改文件头#!/usr/bin/python -tt为#!/usr/bin/python2 -tt
  接下来可以开始进行安装步骤，执行命令 yum install mysql-community-server 进行安装，需要依赖安装时选择y就ok
- 启动mysql服务 执行命令systemctl start mysqld.service来启动mysql服务，systemctl status mysqld.service可查看mysql服务运行状态 MySQL服务器初始化（从MySQL 5.7开始）：在服务器初始启动时，如果服务器的数据目录为空，则会发生以下情况：
- 服务器已初始化。
- 在数据目录中生成SSL证书和密钥文件。
- 该validate_password插件安装并启用。
- 将&amp;rsquo;root&amp;rsquo;@&amp;lsquo;localhost&amp;rsquo; 创建一个超级用户帐户。设置超级用户的密码并将其存储在错误日志文件中。要显示它，请使用以下命令： grep &#39;temporary password&#39; /var/log/mysqld.log
-   通过使用生成的临时密码登录并为超级用户帐户设置自定义密码，尽快更改root密码：</description>
+  启动mysql服务 执行命令systemctl start mysqld.service来启动mysql服务，systemctl status mysqld.service可查看mysql服务运行状态 MySQL服务器初始化（从MySQL 5.7开始）：在服务器初始启动时，如果服务器的数据目录为空，则会发生以下情况：
+  服务器已初始化。
+  在数据目录中生成SSL证书和密钥文件。
+  该validate_password插件安装并启用。
+  将&amp;rsquo;root&amp;rsquo;@&amp;lsquo;localhost&amp;rsquo; 创建一个超级用户帐户。设置超级用户的密码并将其存储在错误日志文件中。要显示它，请使用以下命令： grep &#39;temporary password&#39; /var/log/mysqld.</description>
     </item>
     
     <item>
@@ -156,7 +179,7 @@ yum-config-manager --disable mysql80-community yum-config-manager --enable mysql
       
       <guid>https://duduhusky.com/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
-curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download  下载的时候结果文件名变成了download
+curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download 下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg
 查阅了一下如果加上-J 参数的话就对了</description>
     </item>
@@ -169,8 +192,8 @@ curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download  下载的时�
       <guid>https://duduhusky.com/2019/vue-console/</guid>
       <description>在vue使用console.log()打印变量 会有多余不期望看到的属性 而且展开方式不友好 所以重置一个打印方式：
 在main.js文件中添加一下代码
-Vue.prototype.print = (obj,type) =&amp;gt; { type = type || &amp;quot;log&amp;quot;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) }  以后打印变量就可以直接使用
-this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </description>
+Vue.prototype.print = (obj,type) =&amp;gt; { type = type || &amp;#34;log&amp;#34;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) } 以后打印变量就可以直接使用
+this.print(obj) //或者 this.print(obj,&amp;#34;error&amp;#34;) </description>
     </item>
     
     <item>
@@ -179,9 +202,10 @@ this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </descriptio
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://duduhusky.com/2019/vue-axios-http/</guid>
-      <description>首先前端部分 let instance = axios.create({ baseURL: &#39;http://api.xxx.com&#39;, headers: { &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, } })  后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ &#39;class&#39; =&amp;gt; Cors::className() ], ], parent::behaviors()); }  主要有几点注意：
+      <description>首先前端部分 let instance = axios.create({ baseURL: &amp;#39;http://api.xxx.com&amp;#39;, headers: { &amp;#39;Access-Control-Allow-Origin&amp;#39;: &amp;#39;*&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ &amp;#39;class&amp;#39; =&amp;gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：
  对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true
-  顺便-&amp;gt;Yii2添加解析json数据</description>
+   顺便-&amp;gt;Yii2添加解析json数据
+&amp;#39;request&amp;#39; =&amp;gt; [ &amp;#39;parsers&amp;#39; =&amp;gt; [ &amp;#39;application/json&amp;#39; =&amp;gt; &amp;#39;yii\web\JsonParser&amp;#39;, ] ],  </description>
     </item>
     
     <item>
@@ -192,7 +216,7 @@ this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </descriptio
       <guid>https://duduhusky.com/2019/yii2-mysql-associate-type/</guid>
       <description>yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。
 原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。
-&amp;lt;?php return [ &#39;class&#39; =&amp;gt; &#39;yii\db\Connection&#39;, &#39;dsn&#39; =&amp;gt; &#39;mysql:host=localhost;dbname=yii2basic&#39;, &#39;username&#39; =&amp;gt; &#39;root&#39;, &#39;password&#39; =&amp;gt; &#39;123456&#39;, &#39;charset&#39; =&amp;gt; &#39;utf8&#39;, &#39;tablePrefix&#39; =&amp;gt; &#39;yii_&#39;, &#39;attributes&#39; =&amp;gt; [ PDO::ATTR_STRINGIFY_FETCHES =&amp;gt; false, PDO::ATTR_EMULATE_PREPARES =&amp;gt; false, ] // Schema cache options (for production environment) //&#39;enableSchemaCache&#39; =&amp;gt; true, //&#39;schemaCacheDuration&#39; =&amp;gt; 60, //&#39;schemaCache&#39; =&amp;gt; &#39;cache&#39;, ];  yii2 在数据库组件配置中添加attributes的两项配置即可
+&amp;lt;?php return [ &amp;#39;class&amp;#39; =&amp;gt; &amp;#39;yii\db\Connection&amp;#39;, &amp;#39;dsn&amp;#39; =&amp;gt; &amp;#39;mysql:host=localhost;dbname=yii2basic&amp;#39;, &amp;#39;username&amp;#39; =&amp;gt; &amp;#39;root&amp;#39;, &amp;#39;password&amp;#39; =&amp;gt; &amp;#39;123456&amp;#39;, &amp;#39;charset&amp;#39; =&amp;gt; &amp;#39;utf8&amp;#39;, &amp;#39;tablePrefix&amp;#39; =&amp;gt; &amp;#39;yii_&amp;#39;, &amp;#39;attributes&amp;#39; =&amp;gt; [ PDO::ATTR_STRINGIFY_FETCHES =&amp;gt; false, PDO::ATTR_EMULATE_PREPARES =&amp;gt; false, ] // Schema cache options (for production environment)  //&amp;#39;enableSchemaCache&amp;#39; =&amp;gt; true,  //&amp;#39;schemaCacheDuration&amp;#39; =&amp;gt; 60,  //&amp;#39;schemaCache&amp;#39; =&amp;gt; &amp;#39;cache&amp;#39;, ]; yii2 在数据库组件配置中添加attributes的两项配置即可
 而且数组查询方式更节省内存，性能更高
  yii2其实始终以数组模式查询，如果不使用asArray模式，会对查询到的数组结果集结合对应的Model进行映射成相应的AR对象，即asArray其实是关闭了数组映射至AR对象的步骤
  我们为接口提供数据时本身就是要提供一些数据标量，没必要查询数据对象，所以接口返回数据时都应该以asArray的方式查询，且配置PDO的属性以便保持数据字段类型的一致性，避免对接上的混乱。</description>
@@ -207,8 +231,8 @@ this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </descriptio
       <description>安装多个语言包之后，在前台或后台显示界面会出现Default选择项
 解决办法:
  /path to your flarum project/vendor/flarum/core/src/Locale/LocaleServiceProvider.php 注释第31行代码:$locales-&amp;gt;addLocale($this-&amp;gt;getDefaultLocale(), &#39;Default&#39;);
-  解决!
-  新的更新问题已经解决
+   解决!
+   新的更新问题已经解决
  </description>
     </item>
     

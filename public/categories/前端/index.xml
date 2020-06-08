@@ -19,8 +19,8 @@
       <guid>https://duduhusky.com/2019/vue-console/</guid>
       <description>在vue使用console.log()打印变量 会有多余不期望看到的属性 而且展开方式不友好 所以重置一个打印方式：
 在main.js文件中添加一下代码
-Vue.prototype.print = (obj,type) =&amp;gt; { type = type || &amp;quot;log&amp;quot;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) }  以后打印变量就可以直接使用
-this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </description>
+Vue.prototype.print = (obj,type) =&amp;gt; { type = type || &amp;#34;log&amp;#34;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) } 以后打印变量就可以直接使用
+this.print(obj) //或者 this.print(obj,&amp;#34;error&amp;#34;) </description>
     </item>
     
     <item>
@@ -29,9 +29,10 @@ this.print(obj) //或者 this.print(obj,&amp;quot;error&amp;quot;)  </descriptio
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://duduhusky.com/2019/vue-axios-http/</guid>
-      <description>首先前端部分 let instance = axios.create({ baseURL: &#39;http://api.xxx.com&#39;, headers: { &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, } })  后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ &#39;class&#39; =&amp;gt; Cors::className() ], ], parent::behaviors()); }  主要有几点注意：
+      <description>首先前端部分 let instance = axios.create({ baseURL: &amp;#39;http://api.xxx.com&amp;#39;, headers: { &amp;#39;Access-Control-Allow-Origin&amp;#39;: &amp;#39;*&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ &amp;#39;class&amp;#39; =&amp;gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：
  对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true
-  顺便-&amp;gt;Yii2添加解析json数据</description>
+   顺便-&amp;gt;Yii2添加解析json数据
+&amp;#39;request&amp;#39; =&amp;gt; [ &amp;#39;parsers&amp;#39; =&amp;gt; [ &amp;#39;application/json&amp;#39; =&amp;gt; &amp;#39;yii\web\JsonParser&amp;#39;, ] ],  </description>
     </item>
     
   </channel>

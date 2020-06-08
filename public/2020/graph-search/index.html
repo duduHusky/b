@@ -10,14 +10,15 @@
   
   
   <link rel="prev" href="https://duduhusky.com/2020/janusgraph-study/" />
-  
+  <link rel="next" href="https://duduhusky.com/2020/nlp_measure/" />
   <link rel="canonical" href="https://duduhusky.com/2020/graph-search/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "图的遍历之深度优先搜索和广度优先搜索",
     "headline" : "图的遍历之深度优先搜索和广度优先搜索",
-    "description" : "深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。\n它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。\n显然，深度优先搜索是一个递归的过程\n深度优先搜索图解 无向图的深度优先搜索 下面以\x26rdquo;无向图\x26rdquo;为例，来对深度优先搜索进行演示\n对上面的图G1进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问(A的邻接点)C。 \x26gt;在第1步访问A之后，接下来应该访问的是A的邻接点，即\x26rdquo;C,D,F\x26rdquo;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在\x26rdquo;D和F\x26rdquo;的前面，因此，先访问C。\n第3步： 访问(C的邻接点)B。 \x26gt;在第2步访问C之后，接下来应该访问C的邻接点，即\x26rdquo;B和D\x26rdquo;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。\n第4步： 访问(C的邻接点)D。 \x26gt;在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。\n第5步： 访问(A的邻接点)F。 \x26gt;前面已经访问了A，并且访问完了\x26rdquo;A的邻接点B的所有邻接点(包括递归的邻接点在内)\x26ldquo;；因此，此时返回到访问A的另一个邻接点F。\n第6步： 访问(F的邻接点)G。\n第7步： 访问(G的邻接点)E\n因此访问顺序是：A -\x26gt; C -\x26gt; B -\x26gt; D -\x26gt; F -\x26gt; G -\x26gt; E\n有向图的深度优先搜索 下面以\x26rdquo;有向图\x26rdquo;为例，来对深度优先搜索进行演示\n对上面的图G2进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问B。 \x26gt;在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。\n第3步： 访问C。 \x26gt;在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。\n第4步： 访问E。 \x26gt;接下来访问C的出边的另一个顶点，即顶点E。\n第5步： 访问D。 \x26gt;接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。\n第6步： 访问F。 \x26gt;接下应该回溯\x26rdquo;访问A的出边的另一个顶点F\x26rdquo;。\n第7步： 访问G。\n因此访问顺序是：A -\x26gt; B -\x26gt; C -\x26gt; E -\x26gt; D -\x26gt; F -\x26gt; G",
+    "description" : "深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。\n它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。\n显然，深度优先搜索是一个递归的过程\n深度优先搜索图解 无向图的深度优先搜索 下面以\x26quot;无向图\x26quot;为例，来对深度优先搜索进行演示\n对上面的图G1进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问(A的邻接点)C。\n 在第1步访问A之后，接下来应该访问的是A的邻接点，即\x26quot;C,D,F\x26quot;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在\x26quot;D和F\x26quot;的前面，因此，先访问C。\n 第3步： 访问(C的邻接点)B。\n 在第2步访问C之后，接下来应该访问C的邻接点，即\x26quot;B和D\x26quot;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。\n 第4步： 访问(C的邻接点)D。\n 在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。\n 第5步： 访问(A的邻接点)F。\n 前面已经访问了A，并且访问完了\x26quot;A的邻接点B的所有邻接点(包括递归的邻接点在内)\x26quot;；因此，此时返回到访问A的另一个邻接点F。\n 第6步： 访问(F的邻接点)G。\n第7步： 访问(G的邻接点)E\n因此访问顺序是：A -\x26gt; C -\x26gt; B -\x26gt; D -\x26gt; F -\x26gt; G -\x26gt; E\n有向图的深度优先搜索 下面以\x26quot;有向图\x26quot;为例，来对深度优先搜索进行演示\n对上面的图G2进行深度优先遍历，从顶点A开始\n第1步： 访问A。\n第2步： 访问B。\n 在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。\n 第3步： 访问C。\n 在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。\n 第4步： 访问E。\n 接下来访问C的出边的另一个顶点，即顶点E。\n 第5步： 访问D。",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -148,130 +149,103 @@
           
           
 
-          
-
-<h1 id="深度优先搜索介绍">深度优先搜索介绍</h1>
-
+          <h1 id="深度优先搜索介绍">深度优先搜索介绍</h1>
 <p>图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。</p>
-
 <p>它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。</p>
-
 <p>显然，深度优先搜索是一个递归的过程</p>
-
 <h1 id="深度优先搜索图解">深度优先搜索图解</h1>
-
 <h2 id="无向图的深度优先搜索">无向图的深度优先搜索</h2>
-
-<p>下面以&rdquo;无向图&rdquo;为例，来对深度优先搜索进行演示</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/01_1585560572562.jpg" alt="无向图" class="lazyload"><figcaption class="image-caption">无向图</figcaption></figure></p>
-
+<p>下面以&quot;无向图&quot;为例，来对深度优先搜索进行演示</p>
+<p><img src="http://cdn.image.wjunz.com/01_1585560572562.jpg" alt="无向图"></p>
 <p>对上面的图G1进行深度优先遍历，从顶点A开始</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/02_1585560597164.jpg" alt="02" class="lazyload"><figcaption class="image-caption">02</figcaption></figure></p>
-
+<p><img src="http://cdn.image.wjunz.com/02_1585560597164.jpg" alt="02"></p>
 <p><strong>第1步：</strong> 访问A。</p>
-
-<p><strong>第2步：</strong> 访问(A的邻接点)C。
-&gt;在第1步访问A之后，接下来应该访问的是A的邻接点，即&rdquo;C,D,F&rdquo;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在&rdquo;D和F&rdquo;的前面，因此，先访问C。</p>
-
-<p><strong>第3步：</strong> 访问(C的邻接点)B。
-&gt;在第2步访问C之后，接下来应该访问C的邻接点，即&rdquo;B和D&rdquo;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。</p>
-
-<p><strong>第4步：</strong> 访问(C的邻接点)D。
-&gt;在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。</p>
-
-<p><strong>第5步：</strong> 访问(A的邻接点)F。
-&gt;前面已经访问了A，并且访问完了&rdquo;A的邻接点B的所有邻接点(包括递归的邻接点在内)&ldquo;；因此，此时返回到访问A的另一个邻接点F。</p>
-
-<p><strong>第6步：</strong> 访问(F的邻接点)G。</p>
-
-<p><strong>第7步：</strong> 访问(G的邻接点)E</p>
-
-<p>因此访问顺序是：<strong>A -&gt; C -&gt; B -&gt; D -&gt; F -&gt; G -&gt; E</strong></p>
-
-<h2 id="有向图的深度优先搜索">有向图的深度优先搜索</h2>
-
-<p>下面以&rdquo;有向图&rdquo;为例，来对深度优先搜索进行演示</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/03_1585560597151.jpg" alt="03" class="lazyload"><figcaption class="image-caption">03</figcaption></figure></p>
-
-<p>对上面的图G2进行深度优先遍历，从顶点A开始</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/04_1585560594922.jpg" alt="04" class="lazyload"><figcaption class="image-caption">04</figcaption></figure></p>
-
-<p><strong>第1步：</strong> 访问A。</p>
-
-<p><strong>第2步：</strong> 访问B。
-&gt;在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。</p>
-
-<p><strong>第3步：</strong> 访问C。
-&gt;在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。</p>
-
-<p><strong>第4步：</strong> 访问E。
-&gt;接下来访问C的出边的另一个顶点，即顶点E。</p>
-
-<p><strong>第5步：</strong> 访问D。
-&gt;接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。</p>
-
-<p><strong>第6步：</strong> 访问F。
-&gt;接下应该回溯&rdquo;访问A的出边的另一个顶点F&rdquo;。</p>
-
-<p><strong>第7步：</strong> 访问G。</p>
-
-<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; D -&gt; F -&gt; G</strong></p>
-
-<h1 id="广度优先搜索介绍">广度优先搜索介绍</h1>
-
-<p>广度优先搜索算法(Breadth First Search)，又称为&rdquo;宽度优先搜索&rdquo;或&rdquo;横向优先搜索&rdquo;，简称BFS。</p>
-
-<p>它的思想是：从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。</p>
-
-<p>换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远，依次访问和v有路径相通且路径长度为1,2&hellip;的顶点</p>
-
-<h1 id="广度优先搜索图解">广度优先搜索图解</h1>
-
-<h2 id="无向图的广度优先搜索">无向图的广度优先搜索</h2>
-
-<p>下面以&rdquo;无向图&rdquo;为例，来对广度优先搜索进行演示。还是以上面的图G1为例进行说明</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/05_1585560594934.jpg" alt="05" class="lazyload"><figcaption class="image-caption">05</figcaption></figure></p>
-
-<p><strong>第1步：</strong> 访问A。</p>
-
-<p><strong>第2步：</strong> 依次访问C,D,F。
-&gt;在访问了A之后，接下来访问A的邻接点。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，C在&rdquo;D和F&rdquo;的前面，因此，先访问C。再访问完C之后，再依次访问D,F。</p>
-
-<p><strong>第3步：</strong> 依次访问B,G。
-&gt;在第2步访问完C,D,F之后，再依次访问它们的邻接点。首先访问C的邻接点B，再访问F的邻接点G。</p>
-
-<p><strong>第4步：</strong> 访问E。
-&gt;在第3步访问完B,G之后，再依次访问它们的邻接点。只有G有邻接点E，因此访问G的邻接点E。</p>
-
-<p>因此访问顺序是：<strong>A -&gt; C -&gt; D -&gt; F -&gt; B -&gt; G -&gt; E</strong></p>
-
-<h2 id="有向图的广度优先搜索">有向图的广度优先搜索</h2>
-
-<p>下面以&rdquo;有向图&rdquo;为例，来对广度优先搜索进行演示。还是以上面的图G2为例进行说明</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://cdn.image.wjunz.com/06_1585560594905.jpg" alt="06" class="lazyload"><figcaption class="image-caption">06</figcaption></figure></p>
-
-<p><strong>第1步：</strong> 访问A。</p>
-
-<p><strong>第2步：</strong> 访问B。</p>
-
-<p><strong>第3步：</strong> 依次访问C,E,F。
-&gt;在访问了B之后，接下来访问B的出边的另一个顶点，即C,E,F。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，因此会先访问C，再依次访问E,F。</p>
-
-<p><strong>第4步：</strong> 依次访问D,G。
-&gt;在访问完C,E,F之后，再依次访问它们的出边的另一个顶点。还是按照C,E,F的顺序访问，C的已经全部访问过了，那么就只剩下E,F；先访问E的邻接点D，再访问F的邻接点G。</p>
-
-<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; F -&gt; D -&gt; G</strong></p>
-
-<hr />
-
+<p><strong>第2步：</strong> 访问(A的邻接点)C。</p>
 <blockquote>
-<p>转自<a href="https://www.cnblogs.com/skywang12345/p/3711483.html" rel="nofollow noreferrer" target="_blank">skywang12345</a></p>
+<p>在第1步访问A之后，接下来应该访问的是A的邻接点，即&quot;C,D,F&quot;中的一个。但在本文的实现中，顶点ABCDEFG是按照顺序存储，C在&quot;D和F&quot;的前面，因此，先访问C。</p>
+</blockquote>
+<p><strong>第3步：</strong> 访问(C的邻接点)B。</p>
+<blockquote>
+<p>在第2步访问C之后，接下来应该访问C的邻接点，即&quot;B和D&quot;中一个(A已经被访问过，就不算在内)。而由于B在D之前，先访问B。</p>
+</blockquote>
+<p><strong>第4步：</strong> 访问(C的邻接点)D。</p>
+<blockquote>
+<p>在第3步访问了C的邻接点B之后，B没有未被访问的邻接点；因此，返回到访问C的另一个邻接点D。</p>
+</blockquote>
+<p><strong>第5步：</strong> 访问(A的邻接点)F。</p>
+<blockquote>
+<p>前面已经访问了A，并且访问完了&quot;A的邻接点B的所有邻接点(包括递归的邻接点在内)&quot;；因此，此时返回到访问A的另一个邻接点F。</p>
+</blockquote>
+<p><strong>第6步：</strong> 访问(F的邻接点)G。</p>
+<p><strong>第7步：</strong> 访问(G的邻接点)E</p>
+<p>因此访问顺序是：<strong>A -&gt; C -&gt; B -&gt; D -&gt; F -&gt; G -&gt; E</strong></p>
+<h2 id="有向图的深度优先搜索">有向图的深度优先搜索</h2>
+<p>下面以&quot;有向图&quot;为例，来对深度优先搜索进行演示</p>
+<p><img src="http://cdn.image.wjunz.com/03_1585560597151.jpg" alt="03"></p>
+<p>对上面的图G2进行深度优先遍历，从顶点A开始</p>
+<p><img src="http://cdn.image.wjunz.com/04_1585560594922.jpg" alt="04"></p>
+<p><strong>第1步：</strong> 访问A。</p>
+<p><strong>第2步：</strong> 访问B。</p>
+<blockquote>
+<p>在访问了A之后，接下来应该访问的是A的出边的另一个顶点，即顶点B。</p>
+</blockquote>
+<p><strong>第3步：</strong> 访问C。</p>
+<blockquote>
+<p>在访问了B之后，接下来应该访问的是B的出边的另一个顶点，即顶点C,E,F。在本文实现的图中，顶点ABCDEFG按照顺序存储，因此先访问C。</p>
+</blockquote>
+<p><strong>第4步：</strong> 访问E。</p>
+<blockquote>
+<p>接下来访问C的出边的另一个顶点，即顶点E。</p>
+</blockquote>
+<p><strong>第5步：</strong> 访问D。</p>
+<blockquote>
+<p>接下来访问E的出边的另一个顶点，即顶点B,D。顶点B已经被访问过，因此访问顶点D。</p>
+</blockquote>
+<p><strong>第6步：</strong> 访问F。</p>
+<blockquote>
+<p>接下应该回溯&quot;访问A的出边的另一个顶点F&rdquo;。</p>
+</blockquote>
+<p><strong>第7步：</strong> 访问G。</p>
+<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; D -&gt; F -&gt; G</strong></p>
+<h1 id="广度优先搜索介绍">广度优先搜索介绍</h1>
+<p>广度优先搜索算法(Breadth First Search)，又称为&quot;宽度优先搜索&quot;或&quot;横向优先搜索&rdquo;，简称BFS。</p>
+<p>它的思想是：从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。</p>
+<p>换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远，依次访问和v有路径相通且路径长度为1,2&hellip;的顶点</p>
+<h1 id="广度优先搜索图解">广度优先搜索图解</h1>
+<h2 id="无向图的广度优先搜索">无向图的广度优先搜索</h2>
+<p>下面以&quot;无向图&quot;为例，来对广度优先搜索进行演示。还是以上面的图G1为例进行说明</p>
+<p><img src="http://cdn.image.wjunz.com/05_1585560594934.jpg" alt="05"></p>
+<p><strong>第1步：</strong> 访问A。</p>
+<p><strong>第2步：</strong> 依次访问C,D,F。</p>
+<blockquote>
+<p>在访问了A之后，接下来访问A的邻接点。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，C在&quot;D和F&quot;的前面，因此，先访问C。再访问完C之后，再依次访问D,F。</p>
+</blockquote>
+<p><strong>第3步：</strong> 依次访问B,G。</p>
+<blockquote>
+<p>在第2步访问完C,D,F之后，再依次访问它们的邻接点。首先访问C的邻接点B，再访问F的邻接点G。</p>
+</blockquote>
+<p><strong>第4步：</strong> 访问E。</p>
+<blockquote>
+<p>在第3步访问完B,G之后，再依次访问它们的邻接点。只有G有邻接点E，因此访问G的邻接点E。</p>
+</blockquote>
+<p>因此访问顺序是：<strong>A -&gt; C -&gt; D -&gt; F -&gt; B -&gt; G -&gt; E</strong></p>
+<h2 id="有向图的广度优先搜索">有向图的广度优先搜索</h2>
+<p>下面以&quot;有向图&quot;为例，来对广度优先搜索进行演示。还是以上面的图G2为例进行说明</p>
+<p><img src="http://cdn.image.wjunz.com/06_1585560594905.jpg" alt="06"></p>
+<p><strong>第1步：</strong> 访问A。</p>
+<p><strong>第2步：</strong> 访问B。</p>
+<p><strong>第3步：</strong> 依次访问C,E,F。</p>
+<blockquote>
+<p>在访问了B之后，接下来访问B的出边的另一个顶点，即C,E,F。前面已经说过，在本文实现中，顶点ABCDEFG按照顺序存储的，因此会先访问C，再依次访问E,F。</p>
+</blockquote>
+<p><strong>第4步：</strong> 依次访问D,G。</p>
+<blockquote>
+<p>在访问完C,E,F之后，再依次访问它们的出边的另一个顶点。还是按照C,E,F的顺序访问，C的已经全部访问过了，那么就只剩下E,F；先访问E的邻接点D，再访问F的邻接点G。</p>
+</blockquote>
+<p>因此访问顺序是：<strong>A -&gt; B -&gt; C -&gt; E -&gt; F -&gt; D -&gt; G</strong></p>
+<hr>
+<blockquote>
+<p>转自<a href="https://www.cnblogs.com/skywang12345/p/3711483.html">skywang12345</a></p>
 </blockquote>
 
     </div>
@@ -318,6 +292,8 @@
         
         <a href="https://duduhusky.com/2020/janusgraph-study/" class="prev" rel="prev" title="JanusGraph使用笔记"><i class="iconfont icon-left"></i>&nbsp;JanusGraph使用笔记</a>
          
+        
+        <a href="https://duduhusky.com/2020/nlp_measure/" class="next" rel="next" title="NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)">NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

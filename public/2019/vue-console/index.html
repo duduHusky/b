@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "重置vue打印变量显示方式",
     "headline" : "重置vue打印变量显示方式",
-    "description" : "在vue使用console.log()打印变量 会有多余不期望看到的属性 而且展开方式不友好 所以重置一个打印方式：\n在main.js文件中添加一下代码\nVue.prototype.print = (obj,type) =\x26gt; { type = type || \x26quot;log\x26quot;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) }  以后打印变量就可以直接使用\nthis.print(obj) \/\/或者 this.print(obj,\x26quot;error\x26quot;)  ",
+    "description" : "在vue使用console.log()打印变量 会有多余不期望看到的属性 而且展开方式不友好 所以重置一个打印方式：\n在main.js文件中添加一下代码\nVue.prototype.print = (obj,type) =\x26gt; { type = type || \x26#34;log\x26#34;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) } 以后打印变量就可以直接使用\nthis.print(obj) \/\/或者 this.print(obj,\x26#34;error\x26#34;) ",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -149,23 +150,17 @@
           <p>在vue使用console.log()打印变量 会有多余不期望看到的属性
 而且展开方式不友好
 所以重置一个打印方式：</p>
-
 <p>在main.js文件中添加一下代码</p>
-
-<pre><code class="language-javascript">Vue.prototype.print = (obj,type) =&gt; {
-  type = type || &quot;log&quot;;
-  const log = JSON.parse(JSON.stringify(obj));
-  console[type](log)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">print</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">obj</span>,<span style="color:#a6e22e">type</span>) =&gt; {
+  <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;log&#34;</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">log</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">obj</span>));
+  <span style="color:#a6e22e">console</span>[<span style="color:#a6e22e">type</span>](<span style="color:#a6e22e">log</span>)
 }
-</code></pre>
-
-<p>以后打印变量就可以直接使用</p>
-
-<pre><code class="language-javascript">this.print(obj)
-//或者
-this.print(obj,&quot;error&quot;)
-</code></pre>
-
+</code></pre></div><p>以后打印变量就可以直接使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">obj</span>)
+<span style="color:#75715e">//或者
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">obj</span>,<span style="color:#e6db74">&#34;error&#34;</span>)
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

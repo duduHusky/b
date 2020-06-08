@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "docker安装redis",
     "headline" : "docker安装redis",
-    "description" : "拉取Docker上的Redis docker pull reids  启动镜像 docker run -p 6379:6379 \x26ndash;name myredis -v \/usr\/local\/docker\/redis\/redis.conf:\/etc\/redis\/redis.conf -v \/usr\/local\/docker\/redis\/data:\/data \x26ndash;privileged=true -d redis redis-server \/etc\/redis\/redis.conf \x26ndash;appendonly yes\n   参数 说明     -p 6379:6379 宿主机端口映射docker端口   \x26ndash;name myredis 给启动的容器命个名字   -v \/path\/redis.conf:\/etc\/redis\/redis.conf 宿主机redis配置文件映射docker配置文件   -v \/path\/data:\/data 宿主机data目录映射docker的data目录   \x26ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server \/etc\/redis\/redis.conf redis启动命令   \x26ndash;appendonly yes 开启持久化     redis.",
+    "description" : "拉取Docker上的Redis docker pull reids 启动镜像 docker run -p 6379:6379 \x26ndash;name myredis -v \/usr\/local\/docker\/redis\/redis.conf:\/etc\/redis\/redis.conf -v \/usr\/local\/docker\/redis\/data:\/data \x26ndash;privileged=true -d redis redis-server \/etc\/redis\/redis.conf \x26ndash;appendonly yes\n   参数 说明     -p 6379:6379 宿主机端口映射docker端口   \x26ndash;name myredis 给启动的容器命个名字   -v \/path\/redis.conf:\/etc\/redis\/redis.conf 宿主机redis配置文件映射docker配置文件   -v \/path\/data:\/data 宿主机data目录映射docker的data目录   \x26ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server \/etc\/redis\/redis.conf redis启动命令   \x26ndash;appendonly yes 开启持久化     redis.",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -146,17 +147,10 @@
           
           
 
-          
-
-<h1 id="拉取docker上的redis">拉取Docker上的Redis</h1>
-
-<pre><code class="language-linux">docker pull reids
-</code></pre>
-
-<h1 id="启动镜像">启动镜像</h1>
-
+          <h1 id="拉取docker上的redis">拉取Docker上的Redis</h1>
+<pre><code class="language-linux" data-lang="linux">docker pull reids
+</code></pre><h1 id="启动镜像">启动镜像</h1>
 <p>docker run -p 6379:6379 &ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf  -v /usr/local/docker/redis/data:/data &ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &ndash;appendonly yes</p>
-
 <table>
 <thead>
 <tr>
@@ -164,53 +158,43 @@
 <th>说明</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>-p 6379:6379</td>
 <td>宿主机端口映射docker端口</td>
 </tr>
-
 <tr>
 <td>&ndash;name myredis</td>
 <td>给启动的容器命个名字</td>
 </tr>
-
 <tr>
 <td>-v /path/redis.conf:/etc/redis/redis.conf</td>
 <td>宿主机redis配置文件映射docker配置文件</td>
 </tr>
-
 <tr>
 <td>-v /path/data:/data</td>
 <td>宿主机data目录映射docker的data目录</td>
 </tr>
-
 <tr>
 <td>&ndash;privileged=true</td>
 <td>容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限</td>
 </tr>
-
 <tr>
 <td>-d redis</td>
 <td>本地运行下载的redis镜像</td>
 </tr>
-
 <tr>
 <td>redis-server /etc/redis/redis.conf</td>
 <td>redis启动命令</td>
 </tr>
-
 <tr>
 <td>&ndash;appendonly yes</td>
 <td>开启持久化</td>
 </tr>
 </tbody>
 </table>
-
 <blockquote>
-<p>redis.conf 文件可以在官网下载 <a href="http://download.redis.io/redis-stable/redis.conf" rel="nofollow noreferrer" target="_blank">redis.conf</a></p>
-
+<p>redis.conf 文件可以在官网下载 <a href="http://download.redis.io/redis-stable/redis.conf">redis.conf</a></p>
 <p>!!!注意: redis.conf 文件修改一定一定要注释 <code>daemonize yes</code> 这一行,如果为YES 会导致 redis 无法启动，因为后台会导致docker无任务可做而退出</p>
 </blockquote>
 

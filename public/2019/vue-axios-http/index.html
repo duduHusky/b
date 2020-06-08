@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "Vue中使用axios发送请求",
     "headline" : "Vue中使用axios发送请求",
-    "description" : "首先前端部分 let instance = axios.create({ baseURL: \x27http:\/\/api.xxx.com\x27, headers: { \x27Access-Control-Allow-Origin\x27: \x27*\x27, \x27Content-Type\x27: \x27application\/json\x27, } })  后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ \x27class\x27 =\x26gt; Cors::className() ], ], parent::behaviors()); }  主要有几点注意：\n 对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true\n  顺便-\x26gt;Yii2添加解析json数据",
+    "description" : "首先前端部分 let instance = axios.create({ baseURL: \x26#39;http:\/\/api.xxx.com\x26#39;, headers: { \x26#39;Access-Control-Allow-Origin\x26#39;: \x26#39;*\x26#39;, \x26#39;Content-Type\x26#39;: \x26#39;application\/json\x26#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ \x26#39;class\x26#39; =\x26gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：\n 对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true\n   顺便-\x26gt;Yii2添加解析json数据\n\x26#39;request\x26#39; =\x26gt; [ \x26#39;parsers\x26#39; =\x26gt; [ \x26#39;application\/json\x26#39; =\x26gt; \x26#39;yii\\web\\JsonParser\x26#39;, ] ],  ",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -146,57 +147,43 @@
           
           
 
-          
-
-<h3 id="首先前端部分">首先前端部分</h3>
-
-<pre><code class="language-javascript">let instance = axios.create({
-    baseURL: 'http://api.xxx.com',
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
+          <h3 id="首先前端部分">首先前端部分</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({
+    <span style="color:#a6e22e">baseURL</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://api.xxx.com&#39;</span>,
+    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*&#39;</span>,
+        <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
     }
 })
-</code></pre>
-
-<h3 id="后端php部分">后端PHP部分</h3>
-
-<pre><code class="language-php">public function behaviors() {
+</code></pre></div><h3 id="后端php部分">后端PHP部分</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">public function behaviors() {
         return ArrayHelper::merge([
             [
-                'class' =&gt; Cors::className()
+                &#39;class&#39; =&gt; Cors::className()
             ],
         ], parent::behaviors());
 }
-</code></pre>
-
-<p>主要有几点注意：</p>
-
+</code></pre></div><p>主要有几点注意：</p>
 <ol>
 <li>对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回.</li>
 <li>对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx</li>
 <li>另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常</li>
 </ol>
-
 <blockquote>
 <p>跨域请求想要带上 cookies 必须在请求头里面加上
 crossDomain: true
 withCredentials: true
 后端需要添加<code>Access-Control-Allow-Credentials: true</code></p>
 </blockquote>
-
-<hr />
-
+<hr>
 <blockquote>
 <p>顺便-&gt;Yii2添加解析json数据</p>
-
-<pre><code class="language-php">'request' =&gt; [
-     'parsers' =&gt; [
-        'application/json' =&gt; 'yii\web\JsonParser',
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&#39;request&#39; =&gt; [
+     &#39;parsers&#39; =&gt; [
+        &#39;application/json&#39; =&gt; &#39;yii\web\JsonParser&#39;,
       ]
 ],
-</code></pre>
-</blockquote>
+</code></pre></div></blockquote>
 
     </div>
 

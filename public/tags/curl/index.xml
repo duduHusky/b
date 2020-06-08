@@ -18,7 +18,7 @@
       
       <guid>https://duduhusky.com/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
-curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download  下载的时候结果文件名变成了download
+curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download 下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg
 查阅了一下如果加上-J 参数的话就对了</description>
     </item>

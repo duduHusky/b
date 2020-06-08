@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+    <script type="text/javascript" src="http://file.wjunz.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <title>
        
@@ -46,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "Nginx配置域名https",
     "headline" : "Nginx配置域名https",
-    "description" : "server { listen 443 ssl; server_name www.example.com; #设置长连接 keepalive_timeout 70; #HSTS策略 add_header Strict-Transport-Security \x26quot;max-age=31536000; includeSubDomains; preload\x26quot; always; #证书文件 ssl_certificate www.example.com.crt; #私钥文件 ssl_certificate_key www.example.com.key; #优先采取服务器算法 ssl_prefer_server_ciphers on; #使用DH文件 ssl_dhparam \/etc\/ssl\/certs\/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法 ssl_ciphers \x26quot;EECDH\x2bECDSA\x2bAESGCM EECDH\x2baRSA\x2bAESGCM EECDH\x2bECDSA\x2bSHA384 EECDH\x2bECDSA\x2bSHA256 EECDH\x2baRSA\x2bSHA384 EECDH\x2baRSA\x2bSHA256 EECDH\x2baRSA\x2bRC4 EECDH EDH\x2baRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4\x26quot;; #减少点击劫持 add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型 add_header X-Content-Type-Options nosniff; #防XSS攻擊 add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https:\/\/XXX was loaded over HTTPS, but requested an insecure",
+    "description" : "server { listen 443 ssl; server_name www.example.com; #设置长连接  keepalive_timeout 70; #HSTS策略  add_header Strict-Transport-Security \x26#34;max-age=31536000; includeSubDomains; preload\x26#34; always; #证书文件  ssl_certificate www.example.com.crt; #私钥文件  ssl_certificate_key www.example.com.key; #优先采取服务器算法  ssl_prefer_server_ciphers on; #使用DH文件  ssl_dhparam \/etc\/ssl\/certs\/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法  ssl_ciphers \x26#34;EECDH\x2bECDSA\x2bAESGCM EECDH\x2baRSA\x2bAESGCM EECDH\x2bECDSA\x2bSHA384 EECDH\x2bECDSA\x2bSHA256 EECDH\x2baRSA\x2bSHA384 EECDH\x2baRSA\x2bSHA256 EECDH\x2baRSA\x2bRC4 EECDH EDH\x2baRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4\x26#34;; #减少点击劫持  add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型  add_header X-Content-Type-Options nosniff; #防XSS攻擊  add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https:\/\/XXX was loaded over HTTPS, but requested an insecure",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -146,53 +147,47 @@
           
           
 
-          <pre><code class="language-nginx">
-server {
-        listen              443 ssl;
-        server_name         www.example.com;
+          <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx">
+<span style="color:#66d9ef">server</span> {
+        <span style="color:#f92672">listen</span>              <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span>;
+        <span style="color:#f92672">server_name</span>         <span style="color:#e6db74">www.example.com</span>;
         
-        #设置长连接
-        keepalive_timeout   70;
+        <span style="color:#75715e">#设置长连接
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">keepalive_timeout</span>   <span style="color:#ae81ff">70</span>;
         
-        #HSTS策略
-        add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; always;
+        <span style="color:#75715e">#HSTS策略
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">add_header</span> <span style="color:#e6db74">Strict-Transport-Security</span> <span style="color:#e6db74">&#34;max-age=31536000</span>; <span style="color:#f92672">includeSubDomains</span>; <span style="color:#f92672">preload&#34;</span> <span style="color:#e6db74">always</span>;
         
-        #证书文件
-        ssl_certificate     www.example.com.crt;
-        #私钥文件
-        ssl_certificate_key www.example.com.key; 
+        <span style="color:#75715e">#证书文件
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_certificate</span>     <span style="color:#e6db74">www.example.com.crt</span>;
+        <span style="color:#75715e">#私钥文件
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">www.example.com.key</span>; 
         
-        #优先采取服务器算法
-        ssl_prefer_server_ciphers on;
-        #使用DH文件
-        ssl_dhparam /etc/ssl/certs/dhparam.pem;
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-        #定义算法
-        ssl_ciphers &quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4&quot;;
-        #减少点击劫持
-        add_header X-Frame-Options DENY;
-        #禁止服务器自动解析资源类型
-        add_header X-Content-Type-Options nosniff;
-        #防XSS攻擊
-        add_header X-Xss-Protection 1;
+        <span style="color:#75715e">#优先采取服务器算法
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_prefer_server_ciphers</span> <span style="color:#66d9ef">on</span>;
+        <span style="color:#75715e">#使用DH文件
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_dhparam</span> <span style="color:#e6db74">/etc/ssl/certs/dhparam.pem</span>;
+        <span style="color:#f92672">ssl_protocols</span> <span style="color:#e6db74">TLSv1</span> <span style="color:#e6db74">TLSv1.1</span> <span style="color:#e6db74">TLSv1.2</span>;
+        <span style="color:#75715e">#定义算法
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_ciphers</span> <span style="color:#e6db74">&#34;EECDH+ECDSA+AESGCM</span> <span style="color:#e6db74">EECDH+aRSA+AESGCM</span> <span style="color:#e6db74">EECDH+ECDSA+SHA384</span> <span style="color:#e6db74">EECDH+ECDSA+SHA256</span> <span style="color:#e6db74">EECDH+aRSA+SHA384</span> <span style="color:#e6db74">EECDH+aRSA+SHA256</span> <span style="color:#e6db74">EECDH+aRSA+RC4</span> <span style="color:#e6db74">EECDH</span> <span style="color:#e6db74">EDH+aRSA</span> <span style="color:#e6db74">!aNULL</span> <span style="color:#e6db74">!eNULL</span> <span style="color:#e6db74">!LOW</span> <span style="color:#e6db74">!3DES</span> <span style="color:#e6db74">!MD5</span> <span style="color:#e6db74">!EXP</span> <span style="color:#e6db74">!PSK</span> <span style="color:#e6db74">!SRP</span> <span style="color:#e6db74">!DSS</span> <span style="color:#e6db74">!RC4&#34;</span>;
+        <span style="color:#75715e">#减少点击劫持
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Frame-Options</span> <span style="color:#e6db74">DENY</span>;
+        <span style="color:#75715e">#禁止服务器自动解析资源类型
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Content-Type-Options</span> <span style="color:#e6db74">nosniff</span>;
+        <span style="color:#75715e">#防XSS攻擊
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">add_header</span> <span style="color:#e6db74">X-Xss-Protection</span> <span style="color:#ae81ff">1</span>;
  }
-</code></pre>
-
-<hr />
-
+</code></pre></div><hr>
 <p>JS错误:Mixed Content: The page at <code>https://XXX</code> was loaded over HTTPS, but requested an insecure</p>
-
 <p><strong>原因是</strong> ：</p>
-
 <blockquote>
 <p>一个https的网站中，混合着http请求</p>
 </blockquote>
-
 <p><strong>解决办法</strong>：</p>
-
 <blockquote>
 <p>在nginx  server添加  add_header Content-Security-Policy upgrade-insecure-requests;</p>
-
+</blockquote>
+<blockquote>
 <p>解决https请求http资源不可用的情况</p>
 </blockquote>
 
