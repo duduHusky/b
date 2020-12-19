@@ -11,7 +11,7 @@ jobs: #脚本内容
 
     steps:
     - uses: actions/checkout@master
-    - run: snap install hugo --channel=extended
+    - run: sudo snap install hugo --channel=extended
     - run: hugo -D
     - run: cp CNAME public/ #指定gitpage的自定义域名
 
