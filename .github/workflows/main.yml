@@ -10,11 +10,13 @@ jobs: #脚本内容
     runs-on: ubuntu-latest
 
     steps:
-    - name: 'Building...'
-      uses: reuixiy/hugo-deploy@v1
+    - uses: actions/checkout@master
+    - run: sudo snap install hugo --channel=extended
+    - run: hugo -D
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
       env:
-        DEPLOY_REPO: duduHusky/wjun.github.io
-        DEPLOY_BRANCH: pages
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-        # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-        TZ: Asia/Shanghai
+        ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        PUBLISH_BRANCH: pages #发布到的分支
+        PUBLISH_DIR: public #需要发布的内容
