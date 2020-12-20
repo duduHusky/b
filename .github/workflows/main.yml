@@ -13,6 +13,9 @@ jobs: #脚本内容
     - uses: actions/checkout@master
     - run: sudo snap install hugo --channel=extended
     - run: hugo -D
+    - run: sudo mkdir docs
+    - run: sudo cp public/* docs/ 
+    - run: sudo mv docs public/
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
