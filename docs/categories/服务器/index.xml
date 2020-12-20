@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>服务器 on duduHusky</title>
-    <link>https://duduhusky.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <link>https://duduhusky.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
     <description>Recent content in 服务器 on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jan 2020 14:47:09 +0800</lastBuildDate><atom:link href="https://duduhusky.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jan 2020 14:47:09 +0800</lastBuildDate><atom:link href="https://duduhusky.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Supervisor管理gogs</title>
-      <link>https://duduhusky.com/2020/supervisor-manage-gogs/</link>
+      <link>https://duduhusky.github.io/2020/supervisor-manage-gogs/</link>
       <pubDate>Thu, 23 Jan 2020 14:47:09 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/supervisor-manage-gogs/</guid>
+      <guid>https://duduhusky.github.io/2020/supervisor-manage-gogs/</guid>
       <description>启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:
 2019-10-28 11:21:33,510 INFO supervisord started with pid 66132019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 66152019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 66172019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 66192019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 66232019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly搜索后找到方法： 去掉gogs.</description>
     </item>
     
     <item>
       <title>Nginx配置域名https</title>
-      <link>https://duduhusky.com/2020/nginx-https/</link>
+      <link>https://duduhusky.github.io/2020/nginx-https/</link>
       <pubDate>Wed, 01 Jan 2020 14:48:52 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/nginx-https/</guid>
+      <guid>https://duduhusky.github.io/2020/nginx-https/</guid>
       <description>server { listen 443 ssl; server_name www.example.com; #设置长连接  keepalive_timeout 70; #HSTS策略  add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubDomains; preload&amp;#34; always; #证书文件  ssl_certificate www.example.com.crt; #私钥文件  ssl_certificate_key www.example.com.key; #优先采取服务器算法  ssl_prefer_server_ciphers on; #使用DH文件  ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法  ssl_ciphers &amp;#34;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4&amp;#34;; #减少点击劫持  add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型  add_header X-Content-Type-Options nosniff; #防XSS攻擊  add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https://XXX was loaded over HTTPS, but requested an insecure</description>
     </item>
     
     <item>
       <title>Centos7安装Mysql5.7以上</title>
-      <link>https://duduhusky.com/2019/centos-mysql5.7-install/</link>
+      <link>https://duduhusky.github.io/2019/centos-mysql5.7-install/</link>
       <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/centos-mysql5.7-install/</guid>
+      <guid>https://duduhusky.github.io/2019/centos-mysql5.7-install/</guid>
       <description>卸载原系统中的mariadb…… 首先执行命令rpm -qa|grep mariadb查看是否有mariadb的安装包，没有可以无视 接下来，执行 rpm -e &amp;ndash;nodeps mariadb-libs删除它
   下载mysql5.7安装包 1.前往官方网站复制yum源链接Mysql官网 执行wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm（即你复制的下载链接）进行下载
   进行yum源安装 执行rpm -ivh mysql80-community-release-el7-1.noarch.rpm命令 接下来可以通过yum repolist all | grep mysql查看yum源中的mysql安装包
@@ -47,10 +47,10 @@ yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql
     
     <item>
       <title>Centos7安装docker</title>
-      <link>https://duduhusky.com/2019/centos-docker-install/</link>
+      <link>https://duduhusky.github.io/2019/centos-docker-install/</link>
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/centos-docker-install/</guid>
+      <guid>https://duduhusky.github.io/2019/centos-docker-install/</guid>
       <description>设置yum源 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
  这一步如果提示 bash: yum-config-manager not found 是因为系统默认没有安装这个命令，这个命令在yum-utils 包里，可以通过命令yum -y install yum-utils 安装就可以了
  可以查看所有仓库中所有docker版本，并选择特定版本安装 yum list docker-ce --showduplicates | sort -r
@@ -59,10 +59,10 @@ yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql
     
     <item>
       <title>在服务器中CURL命令下载文件</title>
-      <link>https://duduhusky.com/2019/curl-download-file/</link>
+      <link>https://duduhusky.github.io/2019/curl-download-file/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/curl-download-file/</guid>
+      <guid>https://duduhusky.github.io/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
 curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg

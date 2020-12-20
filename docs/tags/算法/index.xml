@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on duduHusky</title>
-    <link>https://duduhusky.com/tags/%E7%AE%97%E6%B3%95/</link>
+    <link>https://duduhusky.github.io/tags/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://duduhusky.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://duduhusky.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>图的遍历之深度优先搜索和广度优先搜索</title>
-      <link>https://duduhusky.com/2020/graph-search/</link>
+      <link>https://duduhusky.github.io/2020/graph-search/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2020/graph-search/</guid>
+      <guid>https://duduhusky.github.io/2020/graph-search/</guid>
       <description>深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。
 它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。
 显然，深度优先搜索是一个递归的过程

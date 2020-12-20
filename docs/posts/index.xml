@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on duduHusky</title>
-    <link>https://duduhusky.com/posts/</link>
+    <link>https://duduhusky.github.io/posts/</link>
     <description>Recent content in Posts on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate><atom:link href="https://duduhusky.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate><atom:link href="https://duduhusky.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)</title>
-      <link>https://duduhusky.com/2020/nlp_measure/</link>
+      <link>https://duduhusky.github.io/2020/nlp_measure/</link>
       <pubDate>Fri, 05 Jun 2020 11:47:25 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/nlp_measure/</guid>
+      <guid>https://duduhusky.github.io/2020/nlp_measure/</guid>
       <description>一个很简单的例子： 我们训练了一个识猫模型，送一张图片给模型，模型就能告诉你该图片是否有猫。目标是找出所有有猫图片。
 下面送100张有猫的图片，和100张无猫的图片给模型。假设预测的结果如下：
    例子 图片有猫 图片没有猫     模型识别有猫（Positive） 90 5   模型识别没有猫（Negative） 10 95    下面定义四个参数：
@@ -28,10 +28,10 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
     
     <item>
       <title>图的遍历之深度优先搜索和广度优先搜索</title>
-      <link>https://duduhusky.com/2020/graph-search/</link>
+      <link>https://duduhusky.github.io/2020/graph-search/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2020/graph-search/</guid>
+      <guid>https://duduhusky.github.io/2020/graph-search/</guid>
       <description>深度优先搜索介绍 图的深度优先搜索(Depth First Search)，和树的先序遍历比较类似。
 它的思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。
 显然，深度优先搜索是一个递归的过程
@@ -63,10 +63,10 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
     
     <item>
       <title>JanusGraph使用笔记</title>
-      <link>https://duduhusky.com/2020/janusgraph-study/</link>
+      <link>https://duduhusky.github.io/2020/janusgraph-study/</link>
       <pubDate>Thu, 05 Mar 2020 14:39:59 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/janusgraph-study/</guid>
+      <guid>https://duduhusky.github.io/2020/janusgraph-study/</guid>
       <description>下载源码文件(如果你使用Docker也是可以的) 下载地址
 解压下载的文件夹, 比如: janusgraph-0.4.1-hadoop2.zip 配置 例如：存储后端使用 Cassandra, 索引使用es,修改janusgraph-cql-es.properties vim janusgraph-0.4.1-hadoop2/conf/janusgraph-cql-es.properties
 配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址storage.hostname=host:port# ES服务的节点地址及端口index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt;命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;)
@@ -76,10 +76,10 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
     
     <item>
       <title>NLP的词性标注</title>
-      <link>https://duduhusky.com/2020/nlp-part-of-speech/</link>
+      <link>https://duduhusky.github.io/2020/nlp-part-of-speech/</link>
       <pubDate>Sat, 01 Feb 2020 14:43:33 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/nlp-part-of-speech/</guid>
+      <guid>https://duduhusky.github.io/2020/nlp-part-of-speech/</guid>
       <description>是什么？ 对每个词或词语打词类标签，是一个经典的序列标注问题。eg：形容词、动词、名词等。有助于在后面的处理中融入更多有用的语言信息
  词性标注不是非必需的。比如，常见的文本分类就不用关心词性问题，但是类似情感分析、知识推理却是需要的，下图是常见的中文词性整理
  对照表：
@@ -88,10 +88,10 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
     
     <item>
       <title>Maven和Gradle添加依赖</title>
-      <link>https://duduhusky.com/2020/maven-gradle-add-dependence/</link>
+      <link>https://duduhusky.github.io/2020/maven-gradle-add-dependence/</link>
       <pubDate>Wed, 29 Jan 2020 14:45:35 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/maven-gradle-add-dependence/</guid>
+      <guid>https://duduhusky.github.io/2020/maven-gradle-add-dependence/</guid>
       <description>万万没想到啊。有一天我也要写Java
  在maven仓库中去寻找需要的依赖 仓库地址
 搜索需要的依赖,选择需要的版本点进去，Maven项目就点击Maven，Gradle项目就点击Gradle</description>
@@ -99,29 +99,29 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
     
     <item>
       <title>使用Supervisor管理gogs</title>
-      <link>https://duduhusky.com/2020/supervisor-manage-gogs/</link>
+      <link>https://duduhusky.github.io/2020/supervisor-manage-gogs/</link>
       <pubDate>Thu, 23 Jan 2020 14:47:09 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/supervisor-manage-gogs/</guid>
+      <guid>https://duduhusky.github.io/2020/supervisor-manage-gogs/</guid>
       <description>启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:
 2019-10-28 11:21:33,510 INFO supervisord started with pid 66132019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 66152019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 66172019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 66192019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 66232019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly搜索后找到方法： 去掉gogs.</description>
     </item>
     
     <item>
       <title>Nginx配置域名https</title>
-      <link>https://duduhusky.com/2020/nginx-https/</link>
+      <link>https://duduhusky.github.io/2020/nginx-https/</link>
       <pubDate>Wed, 01 Jan 2020 14:48:52 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2020/nginx-https/</guid>
+      <guid>https://duduhusky.github.io/2020/nginx-https/</guid>
       <description>server { listen 443 ssl; server_name www.example.com; #设置长连接  keepalive_timeout 70; #HSTS策略  add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubDomains; preload&amp;#34; always; #证书文件  ssl_certificate www.example.com.crt; #私钥文件  ssl_certificate_key www.example.com.key; #优先采取服务器算法  ssl_prefer_server_ciphers on; #使用DH文件  ssl_dhparam /etc/ssl/certs/dhparam.pem; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #定义算法  ssl_ciphers &amp;#34;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4&amp;#34;; #减少点击劫持  add_header X-Frame-Options DENY; #禁止服务器自动解析资源类型  add_header X-Content-Type-Options nosniff; #防XSS攻擊  add_header X-Xss-Protection 1; }  JS错误:Mixed Content: The page at https://XXX was loaded over HTTPS, but requested an insecure</description>
     </item>
     
     <item>
       <title>Gorm返回的JSON里时间格式</title>
-      <link>https://duduhusky.com/2019/grom-datetime-format/</link>
+      <link>https://duduhusky.github.io/2019/grom-datetime-format/</link>
       <pubDate>Fri, 13 Dec 2019 14:51:47 +0800</pubDate>
       
-      <guid>https://duduhusky.com/2019/grom-datetime-format/</guid>
+      <guid>https://duduhusky.github.io/2019/grom-datetime-format/</guid>
       <description>Golang中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model。 Gorm是这样定义的：
 type Model struct { ID uint `gorm:&amp;#34;primary_key&amp;#34;` CreatedAt time.Time UpdatedAt time.Time } 当我们的API在接收到查询请求时返回一个model通过JSON形式返回给客户端，这时类型为time.Time的字段就会默认以RFC3339的格式返回，所有的这类字段的返回值都固定是2006-01-02T15:04:05.999999999Z07:00这种格式
 const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;Mon Jan _2 15:04:05 MST 2006&amp;#34; RubyDate = &amp;#34;Mon Jan 02 15:04:05 -0700 2006&amp;#34; RFC822 = &amp;#34;02 Jan 06 15:04 MST&amp;#34; RFC822Z = &amp;#34;02 Jan 06 15:04 -0700&amp;#34; // RFC822 with numeric zone  RFC850 = &amp;#34;Monday, 02-Jan-06 15:04:05 MST&amp;#34; RFC1123 = &amp;#34;Mon, 02 Jan 2006 15:04:05 MST&amp;#34; RFC1123Z = &amp;#34;Mon, 02 Jan 2006 15:04:05 -0700&amp;#34; // RFC1123 with numeric zone  RFC3339 = &amp;#34;2006-01-02T15:04:05Z07:00&amp;#34; RFC3339Nano = &amp;#34;2006-01-02T15:04:05.</description>
@@ -129,20 +129,20 @@ const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;M
     
     <item>
       <title>docker安装redis</title>
-      <link>https://duduhusky.com/2019/docker-install-redis/</link>
+      <link>https://duduhusky.github.io/2019/docker-install-redis/</link>
       <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/docker-install-redis/</guid>
+      <guid>https://duduhusky.github.io/2019/docker-install-redis/</guid>
       <description>拉取Docker上的Redis docker pull reids启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
    参数 说明     -p 6379:6379 宿主机端口映射docker端口   &amp;ndash;name myredis 给启动的容器命个名字   -v /path/redis.conf:/etc/redis/redis.conf 宿主机redis配置文件映射docker配置文件   -v /path/data:/data 宿主机data目录映射docker的data目录   &amp;ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server /etc/redis/redis.conf redis启动命令   &amp;ndash;appendonly yes 开启持久化     redis.</description>
     </item>
     
     <item>
       <title>Centos7安装Mysql5.7以上</title>
-      <link>https://duduhusky.com/2019/centos-mysql5.7-install/</link>
+      <link>https://duduhusky.github.io/2019/centos-mysql5.7-install/</link>
       <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/centos-mysql5.7-install/</guid>
+      <guid>https://duduhusky.github.io/2019/centos-mysql5.7-install/</guid>
       <description>卸载原系统中的mariadb…… 首先执行命令rpm -qa|grep mariadb查看是否有mariadb的安装包，没有可以无视 接下来，执行 rpm -e &amp;ndash;nodeps mariadb-libs删除它
   下载mysql5.7安装包 1.前往官方网站复制yum源链接Mysql官网 执行wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm（即你复制的下载链接）进行下载
   进行yum源安装 执行rpm -ivh mysql80-community-release-el7-1.noarch.rpm命令 接下来可以通过yum repolist all | grep mysql查看yum源中的mysql安装包
@@ -158,10 +158,10 @@ yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql
     
     <item>
       <title>Centos7安装docker</title>
-      <link>https://duduhusky.com/2019/centos-docker-install/</link>
+      <link>https://duduhusky.github.io/2019/centos-docker-install/</link>
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/centos-docker-install/</guid>
+      <guid>https://duduhusky.github.io/2019/centos-docker-install/</guid>
       <description>设置yum源 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
  这一步如果提示 bash: yum-config-manager not found 是因为系统默认没有安装这个命令，这个命令在yum-utils 包里，可以通过命令yum -y install yum-utils 安装就可以了
  可以查看所有仓库中所有docker版本，并选择特定版本安装 yum list docker-ce --showduplicates | sort -r
@@ -170,10 +170,10 @@ yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql
     
     <item>
       <title>在服务器中CURL命令下载文件</title>
-      <link>https://duduhusky.com/2019/curl-download-file/</link>
+      <link>https://duduhusky.github.io/2019/curl-download-file/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/curl-download-file/</guid>
+      <guid>https://duduhusky.github.io/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
 curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg
@@ -182,10 +182,10 @@ curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download下载的时候
     
     <item>
       <title>重置vue打印变量显示方式</title>
-      <link>https://duduhusky.com/2019/vue-console/</link>
+      <link>https://duduhusky.github.io/2019/vue-console/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/vue-console/</guid>
+      <guid>https://duduhusky.github.io/2019/vue-console/</guid>
       <description>在vue使用console.log()打印变量 会有多余不期望看到的属性 而且展开方式不友好 所以重置一个打印方式：
 在main.js文件中添加一下代码
 Vue.prototype.print = (obj,type) =&amp;gt; { type = type || &amp;#34;log&amp;#34;; const log = JSON.parse(JSON.stringify(obj)); console[type](log) } 以后打印变量就可以直接使用
@@ -194,10 +194,10 @@ this.print(obj) //或者 this.print(obj,&amp;#34;error&amp;#34;) </description>
     
     <item>
       <title>Vue中使用axios发送请求</title>
-      <link>https://duduhusky.com/2019/vue-axios-http/</link>
+      <link>https://duduhusky.github.io/2019/vue-axios-http/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/vue-axios-http/</guid>
+      <guid>https://duduhusky.github.io/2019/vue-axios-http/</guid>
       <description>首先前端部分 let instance = axios.create({ baseURL: &amp;#39;http://api.xxx.com&amp;#39;, headers: { &amp;#39;Access-Control-Allow-Origin&amp;#39;: &amp;#39;*&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ &amp;#39;class&amp;#39; =&amp;gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：
  对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true
    顺便-&amp;gt;Yii2添加解析json数据
@@ -206,10 +206,10 @@ this.print(obj) //或者 this.print(obj,&amp;#34;error&amp;#34;) </description>
     
     <item>
       <title>yii2数据库查询结果字段类型的问题</title>
-      <link>https://duduhusky.com/2019/yii2-mysql-associate-type/</link>
+      <link>https://duduhusky.github.io/2019/yii2-mysql-associate-type/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/yii2-mysql-associate-type/</guid>
+      <guid>https://duduhusky.github.io/2019/yii2-mysql-associate-type/</guid>
       <description>yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。
 原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。
 &amp;lt;?php return [ &amp;#39;class&amp;#39; =&amp;gt; &amp;#39;yii\db\Connection&amp;#39;, &amp;#39;dsn&amp;#39; =&amp;gt; &amp;#39;mysql:host=localhost;dbname=yii2basic&amp;#39;, &amp;#39;username&amp;#39; =&amp;gt; &amp;#39;root&amp;#39;, &amp;#39;password&amp;#39; =&amp;gt; &amp;#39;123456&amp;#39;, &amp;#39;charset&amp;#39; =&amp;gt; &amp;#39;utf8&amp;#39;, &amp;#39;tablePrefix&amp;#39; =&amp;gt; &amp;#39;yii_&amp;#39;, &amp;#39;attributes&amp;#39; =&amp;gt; [ PDO::ATTR_STRINGIFY_FETCHES =&amp;gt; false, PDO::ATTR_EMULATE_PREPARES =&amp;gt; false, ] // Schema cache options (for production environment)  //&amp;#39;enableSchemaCache&amp;#39; =&amp;gt; true,  //&amp;#39;schemaCacheDuration&amp;#39; =&amp;gt; 60,  //&amp;#39;schemaCache&amp;#39; =&amp;gt; &amp;#39;cache&amp;#39;, ]; yii2 在数据库组件配置中添加attributes的两项配置即可
@@ -220,10 +220,10 @@ this.print(obj) //或者 this.print(obj,&amp;#34;error&amp;#34;) </description>
     
     <item>
       <title>Flarum语言选择显示Default问题</title>
-      <link>https://duduhusky.com/2019/flarum-language-display-default/</link>
+      <link>https://duduhusky.github.io/2019/flarum-language-display-default/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/flarum-language-display-default/</guid>
+      <guid>https://duduhusky.github.io/2019/flarum-language-display-default/</guid>
       <description>安装多个语言包之后，在前台或后台显示界面会出现Default选择项
 解决办法:
  /path to your flarum project/vendor/flarum/core/src/Locale/LocaleServiceProvider.php 注释第31行代码:$locales-&amp;gt;addLocale($this-&amp;gt;getDefaultLocale(), &#39;Default&#39;);

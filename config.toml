@@ -1,4 +1,4 @@
-baseURL = "https://duduhusky.com"
+baseURL = "https://duduhusky.github.io"
 languageCode = "en-us"
 title = "duduHusky"
 theme = "LeaveIt"
@@ -46,7 +46,7 @@ preserveTaxonomyNames = true
     subtitle = "Day Day Upppppp"         # Subtitle
     cdn_url = "http://cdn.image.wjunz.com"           # Base CDN URL
     home_mode = "" # post or other
-    math_uri = "http://file.duduhusky.com"
+    math_uri = "https://file.duduhusky.com"
 
     google_verification = ""
    

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on duduHusky</title>
-    <link>https://duduhusky.com/categories/php/</link>
+    <link>https://duduhusky.github.io/categories/php/</link>
     <description>Recent content in PHP on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://duduhusky.com/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://duduhusky.github.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>yii2数据库查询结果字段类型的问题</title>
-      <link>https://duduhusky.com/2019/yii2-mysql-associate-type/</link>
+      <link>https://duduhusky.github.io/2019/yii2-mysql-associate-type/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/yii2-mysql-associate-type/</guid>
+      <guid>https://duduhusky.github.io/2019/yii2-mysql-associate-type/</guid>
       <description>yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。
 原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。
 &amp;lt;?php return [ &amp;#39;class&amp;#39; =&amp;gt; &amp;#39;yii\db\Connection&amp;#39;, &amp;#39;dsn&amp;#39; =&amp;gt; &amp;#39;mysql:host=localhost;dbname=yii2basic&amp;#39;, &amp;#39;username&amp;#39; =&amp;gt; &amp;#39;root&amp;#39;, &amp;#39;password&amp;#39; =&amp;gt; &amp;#39;123456&amp;#39;, &amp;#39;charset&amp;#39; =&amp;gt; &amp;#39;utf8&amp;#39;, &amp;#39;tablePrefix&amp;#39; =&amp;gt; &amp;#39;yii_&amp;#39;, &amp;#39;attributes&amp;#39; =&amp;gt; [ PDO::ATTR_STRINGIFY_FETCHES =&amp;gt; false, PDO::ATTR_EMULATE_PREPARES =&amp;gt; false, ] // Schema cache options (for production environment)  //&amp;#39;enableSchemaCache&amp;#39; =&amp;gt; true,  //&amp;#39;schemaCacheDuration&amp;#39; =&amp;gt; 60,  //&amp;#39;schemaCache&amp;#39; =&amp;gt; &amp;#39;cache&amp;#39;, ]; yii2 在数据库组件配置中添加attributes的两项配置即可
@@ -23,10 +23,10 @@
     
     <item>
       <title>Flarum语言选择显示Default问题</title>
-      <link>https://duduhusky.com/2019/flarum-language-display-default/</link>
+      <link>https://duduhusky.github.io/2019/flarum-language-display-default/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://duduhusky.com/2019/flarum-language-display-default/</guid>
+      <guid>https://duduhusky.github.io/2019/flarum-language-display-default/</guid>
       <description>安装多个语言包之后，在前台或后台显示界面会出现Default选择项
 解决办法:
  /path to your flarum project/vendor/flarum/core/src/Locale/LocaleServiceProvider.php 注释第31行代码:$locales-&amp;gt;addLocale($this-&amp;gt;getDefaultLocale(), &#39;Default&#39;);
