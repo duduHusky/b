@@ -14,7 +14,7 @@ jobs: #脚本内容
     - run: sudo snap install hugo --channel=extended
     - run: hugo -D
     - run: sudo mkdir docs
-    - run: sudo cp public/* docs/ 
+    - run: sudo mv public/* docs/ 
     - run: sudo mv docs public/
 
     - name: Deploy
