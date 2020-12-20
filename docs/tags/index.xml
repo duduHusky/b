@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on duduHusky</title>
+    <link>https://duduhusky.com/tags/</link>
+    <description>Recent content in Tags on duduHusky</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate><atom:link href="https://duduhusky.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nlp</title>
+      <link>https://duduhusky.com/tags/nlp/</link>
+      <pubDate>Fri, 05 Jun 2020 11:47:25 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>https://duduhusky.com/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>janusgraph</title>
+      <link>https://duduhusky.com/tags/janusgraph/</link>
+      <pubDate>Thu, 05 Mar 2020 14:39:59 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/janusgraph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gradle</title>
+      <link>https://duduhusky.com/tags/gradle/</link>
+      <pubDate>Wed, 29 Jan 2020 14:45:35 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/gradle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://duduhusky.com/tags/java/</link>
+      <pubDate>Wed, 29 Jan 2020 14:45:35 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://duduhusky.com/tags/maven/</link>
+      <pubDate>Wed, 29 Jan 2020 14:45:35 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gogs</title>
+      <link>https://duduhusky.com/tags/gogs/</link>
+      <pubDate>Thu, 23 Jan 2020 14:47:09 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/gogs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://duduhusky.com/tags/nginx/</link>
+      <pubDate>Wed, 01 Jan 2020 14:48:52 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gorm</title>
+      <link>https://duduhusky.com/tags/gorm/</link>
+      <pubDate>Fri, 13 Dec 2019 14:51:47 +0800</pubDate>
+      
+      <guid>https://duduhusky.com/tags/gorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://duduhusky.com/tags/docker/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>https://duduhusky.com/tags/redis/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://duduhusky.com/tags/mysql/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>curl</title>
+      <link>https://duduhusky.com/tags/curl/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vue</title>
+      <link>https://duduhusky.com/tags/vue/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>axios</title>
+      <link>https://duduhusky.com/tags/axios/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/axios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdo</title>
+      <link>https://duduhusky.com/tags/pdo/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/pdo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yii2</title>
+      <link>https://duduhusky.com/tags/yii2/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/yii2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flarum</title>
+      <link>https://duduhusky.com/tags/flarum/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.com/tags/flarum/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
