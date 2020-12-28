@@ -6,7 +6,34 @@
     <description>Recent content in Posts on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 11:47:25 +0800</lastBuildDate><atom:link href="https://duduhusky.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://duduhusky.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue仿探探拖拽卡片的效果</title>
+      <link>https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/</guid>
+      <description>类似Tinder和探探的卡片效果的组件，社区中已经非常多了。我这一版除了可以实现和他们一样的效果外。还增加了飞卡的效果，就是类似我的女神邱淑贞这样。
+可以将卡片朝任意拖拽方向飞出去，必须得帅是不是！
+下面带大家一步步来实现这个效果
+转载自掘金: https://juejin.cn/post/6906143905922678797
+先叠起来 其实我最早实现这个效果，是在2018年的时候，在weex上实现过一版。原帖请看这里：zhuanlan.zhihu.com/p/37482853
+咱们这次不要求在weex里可用，所以叠起来非常简单。
+首先让三个卡片按照近大远小的原则分别设置设置z-index，宽和高，比如每一层卡片的宽和高比上一层卡片要缩小20个像素（还有一种做法是通过zoom或者scale来设置远处卡片的缩小级别）。然后加入绝对定位position:absolute和z-index就可以将卡片层叠起来了。
+拖动第一张卡 因为只有第一张卡片可以拖动，所以我们只要监听第一张卡片的拖动事件。比如touchstart,touchmove,touchcancel,touchend。
+拖动的时候需要注意，在touchstart的时候记录一下手指按下的位置，在touchmove时要减去这个位置，看上去就是点哪儿从哪儿拖。
+touchStart:function(e){ var curTouch=e.touches[0]; this.startLeft=curTouch.clientX-this.left; this.startTop=curTouch.clientY-this.top; } touchMove:function(e){ var curTouch=e.touches[0]; this.left=curTouch.clientX-this.startLeft; this.top=curTouch.clientY-this.startTop; } 复制代码 飞出去 要实现超任意拖拽方向飞出去这个效果，需要用到一些数学公式。
+计算卡片当前拖拽的坐标和起始坐标的夹角
+var angle=Math.atan2((当前坐标.y-起点坐标.y), (当前坐标.x-起点坐标.x)); 复制代码 飞出去的落点x轴坐标通过计算angle的余弦值再乘以力度得出
+this.left=Math.cos(angle)*this.throwDistance; 复制代码 飞出去的落点y轴坐标通过计算angle的正弦值再乘以力度得出
+this.top=Math.sin(angle)*this.throwDistance; 复制代码 这里咱们做得再完善一些，在拖动结束时去判断一下当前拖动的距离是否足够触发飞卡效果。如果不触发飞卡效果，则触发回位效果。这样的话也可以防止用户误操作。
+//计算两点之间的直线距离 getDistance:function(x1, y1, x2, y2) { var _x = Math.abs(x1 - x2); var _y = Math.abs(y1 - y2); return Math.sqrt(_x * _x + _y * _y); } var distance=this.getDistance(0,0,this.left,this.top); if(distance&amp;gt;this.throwTriggerDistance){ this.makeCardThrow(); }else{ this.</description>
+    </item>
+    
     <item>
       <title>NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)</title>
       <link>https://duduhusky.github.io/2020/nlp_measure/</link>
@@ -69,9 +96,9 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
       <guid>https://duduhusky.github.io/2020/janusgraph-study/</guid>
       <description>下载源码文件(如果你使用Docker也是可以的) 下载地址
 解压下载的文件夹, 比如: janusgraph-0.4.1-hadoop2.zip 配置 例如：存储后端使用 Cassandra, 索引使用es,修改janusgraph-cql-es.properties vim janusgraph-0.4.1-hadoop2/conf/janusgraph-cql-es.properties
-配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址storage.hostname=host:port# ES服务的节点地址及端口index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt;命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;)
+配置文件重点内容 #storage.hostname=这个地方要配置Cassandra的地址 storage.hostname=host:port # ES服务的节点地址及端口 index.search.hostname=mhostname1:9200,hostname2:9200,hostname3:9200&amp;lt;i&amp;gt; 命令行执行bin/gremlin.sh 初始化完成后执行graph = JanusGraphFactory.open(&#39;conf/janusgraph-cql-es.properties&#39;)
  配置文件路径写自己机器上的位置
- 创建顶点标签 mgmt = graph.openManagement();mgmt.makeVertexLabel(&#39;person&#39;).make();mgmt.makeVertexLabel(&#39;country&#39;).make();mgmt.makeVertexLabel(&#39;weapon&#39;).make();mgmt.getVertexLabels();mgmt.commit()创建边标签 mgmt = graph.openManagement();brother = mgmt.makeEdgeLabel(&amp;quot;brother&amp;quot;).make();mgmt.makeEdgeLabel(&amp;quot;battled&amp;quot;).make();mgmt.makeEdgeLabel(&amp;quot;belongs&amp;quot;).make();mgmt.makeEdgeLabel(&amp;quot;use&amp;quot;).make();mgmt.getRelationTypes(EdgeLabel.class);mgmt.commit()创建属性 mgmt = graph.openManagement();name = mgmt.makePropertyKey(&#39;name&#39;).dataType(String.class).cardinality(Cardinality.SET).make();mgmt.buildIndex(&#39;nameUnique&#39;, Vertex.class).addKey(name).unique().buildCompositeIndex();age = mgmt.makePropertyKey(&amp;quot;age&amp;quot;).dataType(Integer.class).make();mgmt.buildIndex(&#39;age2&#39;, Vertex.class).addKey(age).buildMixedIndex(&amp;quot;sanguo&amp;quot;);mgmt.getGraphIndexes(Vertex.class);mgmt.commit()&amp;lt;i&amp;gt;添加顶点 g = graph.traversal()liubei = g.addV(&amp;quot;person&amp;quot;).property(&#39;name&#39;,&#39;刘备&#39;).property(&#39;age&#39;,45);guanyu = g.</description>
+ 创建顶点标签 mgmt = graph.openManagement(); mgmt.makeVertexLabel(&#39;person&#39;).make(); mgmt.makeVertexLabel(&#39;country&#39;).make(); mgmt.makeVertexLabel(&#39;weapon&#39;).make(); mgmt.getVertexLabels(); mgmt.commit() 创建边标签 mgmt = graph.openManagement(); brother = mgmt.makeEdgeLabel(&amp;quot;brother&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;battled&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;belongs&amp;quot;).make(); mgmt.makeEdgeLabel(&amp;quot;use&amp;quot;).make(); mgmt.getRelationTypes(EdgeLabel.class); mgmt.commit() 创建属性 mgmt = graph.openManagement(); name = mgmt.makePropertyKey(&#39;name&#39;).dataType(String.class).cardinality(Cardinality.SET).make(); mgmt.buildIndex(&#39;nameUnique&#39;, Vertex.class).addKey(name).unique().buildCompositeIndex(); age = mgmt.makePropertyKey(&amp;quot;age&amp;quot;).dataType(Integer.class).make(); mgmt.buildIndex(&#39;age2&#39;, Vertex.class).addKey(age).buildMixedIndex(&amp;quot;sanguo&amp;quot;); mgmt.getGraphIndexes(Vertex.class); mgmt.commit()&amp;lt;i&amp;gt; 添加顶点 g = graph.traversal() liubei = g.addV(&amp;quot;person&amp;quot;).property(&#39;name&#39;,&#39;刘备&#39;).property(&#39;age&#39;,45); guanyu = g.</description>
     </item>
     
     <item>
@@ -104,7 +131,7 @@ FN(False Negatives): 模型识别没猫，实际图片有猫，在例子中是10
       
       <guid>https://duduhusky.github.io/2020/supervisor-manage-gogs/</guid>
       <description>启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:
-2019-10-28 11:21:33,510 INFO supervisord started with pid 66132019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 66152019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 66172019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 66192019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 66232019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected)2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly搜索后找到方法： 去掉gogs.</description>
+2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly 搜索后找到方法： 去掉gogs.</description>
     </item>
     
     <item>
@@ -133,7 +160,7 @@ const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;M
       <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://duduhusky.github.io/2019/docker-install-redis/</guid>
-      <description>拉取Docker上的Redis docker pull reids启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
+      <description>拉取Docker上的Redis docker pull reids 启动镜像 docker run -p 6379:6379 &amp;ndash;name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data &amp;ndash;privileged=true -d redis redis-server /etc/redis/redis.conf &amp;ndash;appendonly yes
    参数 说明     -p 6379:6379 宿主机端口映射docker端口   &amp;ndash;name myredis 给启动的容器命个名字   -v /path/redis.conf:/etc/redis/redis.conf 宿主机redis配置文件映射docker配置文件   -v /path/data:/data 宿主机data目录映射docker的data目录   &amp;ndash;privileged=true 容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限   -d redis 本地运行下载的redis镜像   redis-server /etc/redis/redis.conf redis启动命令   &amp;ndash;appendonly yes 开启持久化     redis.</description>
     </item>
     
@@ -147,13 +174,13 @@ const ( ANSIC = &amp;#34;Mon Jan _2 15:04:05 2006&amp;#34; UnixDate = &amp;#34;M
   下载mysql5.7安装包 1.前往官方网站复制yum源链接Mysql官网 执行wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm（即你复制的下载链接）进行下载
   进行yum源安装 执行rpm -ivh mysql80-community-release-el7-1.noarch.rpm命令 接下来可以通过yum repolist all | grep mysql查看yum源中的mysql安装包
   进行mysql安装 可以看到yum源中默认启用的安装包版本为MySQL8.0，如果需要切换为5.7，需要运行以下命令
-yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql57-community 注意：yum-config-manager默认使用的是python2版本环境，如果用户使用这个命令时报错，可能是因为当前默认python版本为python3版本。需要在/bin/yum-config-manager文件中修改文件头#!/usr/bin/python -tt为#!/usr/bin/python2 -tt
+yum-config-manager --disable mysql80-community yum-config-manager --enable mysql57-community  注意：yum-config-manager默认使用的是python2版本环境，如果用户使用这个命令时报错，可能是因为当前默认python版本为python3版本。需要在/bin/yum-config-manager文件中修改文件头#!/usr/bin/python -tt为#!/usr/bin/python2 -tt
  接下来可以开始进行安装步骤，执行命令 yum install mysql-community-server 进行安装，需要依赖安装时选择y就ok
   启动mysql服务 执行命令systemctl start mysqld.service来启动mysql服务，systemctl status mysqld.service可查看mysql服务运行状态 MySQL服务器初始化（从MySQL 5.7开始）：在服务器初始启动时，如果服务器的数据目录为空，则会发生以下情况：
   服务器已初始化。
   在数据目录中生成SSL证书和密钥文件。
   该validate_password插件安装并启用。
-  将&amp;rsquo;root&#39;@&amp;lsquo;localhost&amp;rsquo; 创建一个超级用户帐户。设置超级用户的密码并将其存储在错误日志文件中。要显示它，请使用以下命令： grep &#39;temporary password&#39; /var/log/mysqld.</description>
+  将&amp;rsquo;root&amp;rsquo;@&amp;lsquo;localhost&amp;rsquo; 创建一个超级用户帐户。设置超级用户的密码并将其存储在错误日志文件中。要显示它，请使用以下命令： grep &#39;temporary password&#39; /var/log/mysqld.</description>
     </item>
     
     <item>
@@ -175,7 +202,7 @@ yum-config-manager --disable mysql80-communityyum-config-manager --enable mysql
       
       <guid>https://duduhusky.github.io/2019/curl-download-file/</guid>
       <description>在下载https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download这个地址的文件时候，如果在浏览器正常打开下载的话，应该是open-semantic-desktop-search_19.07.19.ova这个文件名。然鹅。。在使用
-curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download下载的时候结果文件名变成了download
+curl -O https://nx318.your-next.cloud/s/x56jafH96wwAYrG/download 下载的时候结果文件名变成了download
 ?????黑人问号脸.jpg
 查阅了一下如果加上-J 参数的话就对了</description>
     </item>

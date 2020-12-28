@@ -47,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "Vue中使用axios发送请求",
     "headline" : "Vue中使用axios发送请求",
-    "description" : "首先前端部分 let instance = axios.create({ baseURL: \u0026#39;http:\/\/api.xxx.com\u0026#39;, headers: { \u0026#39;Access-Control-Allow-Origin\u0026#39;: \u0026#39;*\u0026#39;, \u0026#39;Content-Type\u0026#39;: \u0026#39;application\/json\u0026#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ \u0026#39;class\u0026#39; =\u0026gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：\n 对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true\n   顺便-\u0026gt;Yii2添加解析json数据\n\u0026#39;request\u0026#39; =\u0026gt; [ \u0026#39;parsers\u0026#39; =\u0026gt; [ \u0026#39;application\/json\u0026#39; =\u0026gt; \u0026#39;yii\\web\\JsonParser\u0026#39;, ] ],  ",
+    "description" : "首先前端部分 let instance = axios.create({ baseURL: \x26#39;http:\/\/api.xxx.com\x26#39;, headers: { \x26#39;Access-Control-Allow-Origin\x26#39;: \x26#39;*\x26#39;, \x26#39;Content-Type\x26#39;: \x26#39;application\/json\x26#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ \x26#39;class\x26#39; =\x26gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：\n 对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true\n   顺便-\x26gt;Yii2添加解析json数据\n\x26#39;request\x26#39; =\x26gt; [ \x26#39;parsers\x26#39; =\x26gt; [ \x26#39;application\/json\x26#39; =\x26gt; \x26#39;yii\\web\\JsonParser\x26#39;, ] ],  ",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -55,8 +55,8 @@
     "accountablePerson" : "WJun",
     "copyrightHolder" : "WJun",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-07 00:00:00 \u002b0000 UTC",
-    "dateModified" : "2019-12-07 00:00:00 \u002b0000 UTC",
+    "datePublished": "2019-12-07 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-07 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/duduhusky.github.io\/2019\/vue-axios-http\/",
     "wordCount" : "73",
     "keywords" : [ "vue","axios", "duduHusky"]
@@ -156,12 +156,12 @@
     }
 })
 </code></pre></div><h3 id="后端php部分">后端PHP部分</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">behaviors</span>() {
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ArrayHelper</span><span style="color:#f92672">::</span><span style="color:#a6e22e">merge</span>([
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">public function behaviors() {
+        return ArrayHelper::merge([
             [
-                <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Cors</span><span style="color:#f92672">::</span><span style="color:#a6e22e">className</span>()
+                &#39;class&#39; =&gt; Cors::className()
             ],
-        ], <span style="color:#66d9ef">parent</span><span style="color:#f92672">::</span><span style="color:#a6e22e">behaviors</span>());
+        ], parent::behaviors());
 }
 </code></pre></div><p>主要有几点注意：</p>
 <ol>
@@ -178,9 +178,9 @@ withCredentials: true
 <hr>
 <blockquote>
 <p>顺便-&gt;Yii2添加解析json数据</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#e6db74">&#39;request&#39;</span> <span style="color:#f92672">=&gt;</span> [
-     <span style="color:#e6db74">&#39;parsers&#39;</span> <span style="color:#f92672">=&gt;</span> [
-        <span style="color:#e6db74">&#39;application/json&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;yii\web\JsonParser&#39;</span>,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&#39;request&#39; =&gt; [
+     &#39;parsers&#39; =&gt; [
+        &#39;application/json&#39; =&gt; &#39;yii\web\JsonParser&#39;,
       ]
 ],
 </code></pre></div></blockquote>

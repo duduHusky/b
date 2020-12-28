@@ -2,6 +2,7 @@ baseURL = "https://duduhusky.github.io"
 languageCode = "en-us"
 title = "duduHusky"
 theme = "LeaveIt"
+publishDir = "docs"
 
 paginate = 12
 enableEmoji = true

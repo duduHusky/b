@@ -47,7 +47,7 @@
     "articleSection" : "posts",
     "name" : "yii2数据库查询结果字段类型的问题",
     "headline" : "yii2数据库查询结果字段类型的问题",
-    "description" : "yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。\n原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。\n\u0026lt;?php return [ \u0026#39;class\u0026#39; =\u0026gt; \u0026#39;yii\\db\\Connection\u0026#39;, \u0026#39;dsn\u0026#39; =\u0026gt; \u0026#39;mysql:host=localhost;dbname=yii2basic\u0026#39;, \u0026#39;username\u0026#39; =\u0026gt; \u0026#39;root\u0026#39;, \u0026#39;password\u0026#39; =\u0026gt; \u0026#39;123456\u0026#39;, \u0026#39;charset\u0026#39; =\u0026gt; \u0026#39;utf8\u0026#39;, \u0026#39;tablePrefix\u0026#39; =\u0026gt; \u0026#39;yii_\u0026#39;, \u0026#39;attributes\u0026#39; =\u0026gt; [ PDO::ATTR_STRINGIFY_FETCHES =\u0026gt; false, PDO::ATTR_EMULATE_PREPARES =\u0026gt; false, ] \/\/ Schema cache options (for production environment)  \/\/\u0026#39;enableSchemaCache\u0026#39; =\u0026gt; true,  \/\/\u0026#39;schemaCacheDuration\u0026#39; =\u0026gt; 60,  \/\/\u0026#39;schemaCache\u0026#39; =\u0026gt; \u0026#39;cache\u0026#39;, ]; yii2 在数据库组件配置中添加attributes的两项配置即可\n而且数组查询方式更节省内存，性能更高\n yii2其实始终以数组模式查询，如果不使用asArray模式，会对查询到的数组结果集结合对应的Model进行映射成相应的AR对象，即asArray其实是关闭了数组映射至AR对象的步骤\n 我们为接口提供数据时本身就是要提供一些数据标量，没必要查询数据对象，所以接口返回数据时都应该以asArray的方式查询，且配置PDO的属性以便保持数据字段类型的一致性，避免对接上的混乱。",
+    "description" : "yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。\n原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。\n\x26lt;?php return [ \x26#39;class\x26#39; =\x26gt; \x26#39;yii\\db\\Connection\x26#39;, \x26#39;dsn\x26#39; =\x26gt; \x26#39;mysql:host=localhost;dbname=yii2basic\x26#39;, \x26#39;username\x26#39; =\x26gt; \x26#39;root\x26#39;, \x26#39;password\x26#39; =\x26gt; \x26#39;123456\x26#39;, \x26#39;charset\x26#39; =\x26gt; \x26#39;utf8\x26#39;, \x26#39;tablePrefix\x26#39; =\x26gt; \x26#39;yii_\x26#39;, \x26#39;attributes\x26#39; =\x26gt; [ PDO::ATTR_STRINGIFY_FETCHES =\x26gt; false, PDO::ATTR_EMULATE_PREPARES =\x26gt; false, ] \/\/ Schema cache options (for production environment)  \/\/\x26#39;enableSchemaCache\x26#39; =\x26gt; true,  \/\/\x26#39;schemaCacheDuration\x26#39; =\x26gt; 60,  \/\/\x26#39;schemaCache\x26#39; =\x26gt; \x26#39;cache\x26#39;, ]; yii2 在数据库组件配置中添加attributes的两项配置即可\n而且数组查询方式更节省内存，性能更高\n yii2其实始终以数组模式查询，如果不使用asArray模式，会对查询到的数组结果集结合对应的Model进行映射成相应的AR对象，即asArray其实是关闭了数组映射至AR对象的步骤\n 我们为接口提供数据时本身就是要提供一些数据标量，没必要查询数据对象，所以接口返回数据时都应该以asArray的方式查询，且配置PDO的属性以便保持数据字段类型的一致性，避免对接上的混乱。",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
@@ -55,8 +55,8 @@
     "accountablePerson" : "WJun",
     "copyrightHolder" : "WJun",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-07 00:00:00 \u002b0000 UTC",
-    "dateModified" : "2019-12-07 00:00:00 \u002b0000 UTC",
+    "datePublished": "2019-12-07 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-07 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/duduhusky.github.io\/2019\/yii2-mysql-associate-type\/",
     "wordCount" : "61",
     "keywords" : [ "yii2","pdo", "duduHusky"]
@@ -149,7 +149,7 @@
 
           <p>yii2数据库查询默认返回的为AR对象，此时字段类型与数据库的基本相符，但如果使用 asArray 以数组的方式返回时，默认字段类型全都是 string，如果这样返回给前端的话，会很不友好。</p>
 <p>原因是 pdo 在 yii2盛行时还不够完善，一些特性是后期加进来的，比如我们急切需要的返回的结果数据类型与数据库一致。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
 <span style="color:#66d9ef">return</span> [
     <span style="color:#e6db74">&#39;class&#39;</span>       <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;yii\db\Connection&#39;</span>,

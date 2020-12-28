@@ -6,7 +6,11 @@
     <description>Recent content in PHP on duduHusky</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://duduhusky.github.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://duduhusky.github.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>yii2数据库查询结果字段类型的问题</title>
       <link>https://duduhusky.github.io/2019/yii2-mysql-associate-type/</link>

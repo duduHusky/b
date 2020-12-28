@@ -55,8 +55,8 @@
     "accountablePerson" : "WJun",
     "copyrightHolder" : "WJun",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-09 00:00:00 \u002b0000 UTC",
-    "dateModified" : "2019-12-09 00:00:00 \u002b0000 UTC",
+    "datePublished": "2019-12-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-09 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/duduhusky.github.io\/2019\/centos-docker-install\/",
     "wordCount" : "27",
     "keywords" : [ "docker", "duduHusky"]
@@ -150,7 +150,7 @@
           <h2 id="设置yum源">设置yum源</h2>
 <p><code>yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</code></p>
 <blockquote>
-<p>这一步如果提示 <code>bash: yum-config-manager not found</code> 
+<p>这一步如果提示 <code>bash: yum-config-manager not found</code>
 是因为系统默认没有安装这个命令，这个命令在yum-utils 包里，可以通过命令<code>yum -y install yum-utils</code> 安装就可以了</p>
 </blockquote>
 <h2 id="可以查看所有仓库中所有docker版本并选择特定版本安装">可以查看所有仓库中所有docker版本，并选择特定版本安装</h2>
