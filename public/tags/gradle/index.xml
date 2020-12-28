@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradle on duduHusky</title>
+    <link>https://duduhusky.github.io/tags/gradle/</link>
+    <description>Recent content in gradle on duduHusky</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jan 2020 14:45:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://duduhusky.github.io/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Maven和Gradle添加依赖</title>
+      <link>https://duduhusky.github.io/2020/maven-gradle-add-dependence/</link>
+      <pubDate>Wed, 29 Jan 2020 14:45:35 +0800</pubDate>
+      
+      <guid>https://duduhusky.github.io/2020/maven-gradle-add-dependence/</guid>
+      <description>万万没想到啊。有一天我也要写Java
+ 在maven仓库中去寻找需要的依赖 仓库地址
+搜索需要的依赖,选择需要的版本点进去，Maven项目就点击Maven，Gradle项目就点击Gradle</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gogs on duduHusky</title>
+    <link>https://duduhusky.github.io/tags/gogs/</link>
+    <description>Recent content in gogs on duduHusky</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jan 2020 14:47:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://duduhusky.github.io/tags/gogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Supervisor管理gogs</title>
+      <link>https://duduhusky.github.io/2020/supervisor-manage-gogs/</link>
+      <pubDate>Thu, 23 Jan 2020 14:47:09 +0800</pubDate>
+      
+      <guid>https://duduhusky.github.io/2020/supervisor-manage-gogs/</guid>
+      <description>启动supervisord命令后 查看管理进程运行状态supervisorctl status 发现出现问题:
+2019-10-28 11:21:33,510 INFO supervisord started with pid 6613 2019-10-28 11:21:34,513 INFO spawned: &#39;gogs&#39; with pid 6615 2019-10-28 11:21:34,517 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:35,520 INFO spawned: &#39;gogs&#39; with pid 6617 2019-10-28 11:21:35,524 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:37,528 INFO spawned: &#39;gogs&#39; with pid 6619 2019-10-28 11:21:37,532 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:40,537 INFO spawned: &#39;gogs&#39; with pid 6623 2019-10-28 11:21:40,543 INFO exited: gogs (exit status 127; not expected) 2019-10-28 11:21:41,544 INFO gave up: gogs entered FATAL state, too many start retries too quickly 搜索后找到方法： 去掉gogs.</description>
+    </item>
+    
+  </channel>
+</rss>

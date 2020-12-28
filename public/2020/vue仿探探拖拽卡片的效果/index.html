@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="WJun">
+  
+  
+  
+  <link rel="prev" href="https://duduhusky.github.io/2020/nlp_measure/" />
+  
+  <link rel="canonical" href="https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <script type="text/javascript" src="https://file.duduhusky.com/MathJax-2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue仿探探拖拽卡片的效果 | duduHusky
+       
+  </title>
+  <meta name="title" content="Vue仿探探拖拽卡片的效果 | duduHusky">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/duduhusky.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue仿探探拖拽卡片的效果",
+    "headline" : "Vue仿探探拖拽卡片的效果",
+    "description" : "类似Tinder和探探的卡片效果的组件，社区中已经非常多了。我这一版除了可以实现和他们一样的效果外。还增加了飞卡的效果，就是类似我的女神邱淑贞这样。\n可以将卡片朝任意拖拽方向飞出去，必须得帅是不是！\n下面带大家一步步来实现这个效果\n转载自掘金: https:\/\/juejin.cn\/post\/6906143905922678797\n先叠起来 其实我最早实现这个效果，是在2018年的时候，在weex上实现过一版。原帖请看这里：zhuanlan.zhihu.com\/p\/37482853\n咱们这次不要求在weex里可用，所以叠起来非常简单。\n首先让三个卡片按照近大远小的原则分别设置设置z-index，宽和高，比如每一层卡片的宽和高比上一层卡片要缩小20个像素（还有一种做法是通过zoom或者scale来设置远处卡片的缩小级别）。然后加入绝对定位position:absolute和z-index就可以将卡片层叠起来了。\n拖动第一张卡 因为只有第一张卡片可以拖动，所以我们只要监听第一张卡片的拖动事件。比如touchstart,touchmove,touchcancel,touchend。\n拖动的时候需要注意，在touchstart的时候记录一下手指按下的位置，在touchmove时要减去这个位置，看上去就是点哪儿从哪儿拖。\ntouchStart:function(e){ var curTouch=e.touches[0]; this.startLeft=curTouch.clientX-this.left; this.startTop=curTouch.clientY-this.top; } touchMove:function(e){ var curTouch=e.touches[0]; this.left=curTouch.clientX-this.startLeft; this.top=curTouch.clientY-this.startTop; } 复制代码 飞出去 要实现超任意拖拽方向飞出去这个效果，需要用到一些数学公式。\n计算卡片当前拖拽的坐标和起始坐标的夹角\nvar angle=Math.atan2((当前坐标.y-起点坐标.y), (当前坐标.x-起点坐标.x)); 复制代码 飞出去的落点x轴坐标通过计算angle的余弦值再乘以力度得出\nthis.left=Math.cos(angle)*this.throwDistance; 复制代码 飞出去的落点y轴坐标通过计算angle的正弦值再乘以力度得出\nthis.top=Math.sin(angle)*this.throwDistance; 复制代码 这里咱们做得再完善一些，在拖动结束时去判断一下当前拖动的距离是否足够触发飞卡效果。如果不触发飞卡效果，则触发回位效果。这样的话也可以防止用户误操作。\n\/\/计算两点之间的直线距离 getDistance:function(x1, y1, x2, y2) { var _x = Math.abs(x1 - x2); var _y = Math.abs(y1 - y2); return Math.sqrt(_x * _x \x2b _y * _y); } var distance=this.getDistance(0,0,this.left,this.top); if(distance\x26gt;this.throwTriggerDistance){ this.makeCardThrow(); }else{ this.",
+    "inLanguage" : "en-us",
+    "author" : "WJun",
+    "creator" : "WJun",
+    "publisher": "WJun",
+    "accountablePerson" : "WJun",
+    "copyrightHolder" : "WJun",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-12-28 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-12-28 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/duduhusky.github.io\/2020\/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C\/",
+    "wordCount" : "160",
+    "keywords" : [ "vue", "duduHusky"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://duduhusky.github.io">duduHusky</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://duduhusky.github.io">duduHusky</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue仿探探拖拽卡片的效果</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://duduhusky.github.io" rel="author">WJun</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-12-28 itemprop="datePublished">December 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://duduhusky.github.io/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>类似<code>Tinder</code>和<code>探探</code>的卡片效果的组件，社区中已经非常多了。我这一版除了可以实现和他们一样的效果外。还增加了<code>飞卡</code>的效果，就是类似我的女神邱淑贞这样。</p>
+<p>可以将卡片朝任意拖拽方向飞出去，必须得<code>帅</code>是不是！</p>
+<p>下面带大家一步步来实现这个效果</p>
+<p>转载自掘金: <a href="https://juejin.cn/post/6906143905922678797">https://juejin.cn/post/6906143905922678797</a></p>
+<h1 id="先叠起来">先叠起来</h1>
+<p>其实我最早实现这个效果，是在2018年的时候，在weex上实现过一版。原帖请看这里：<a href="https://zhuanlan.zhihu.com/p/37482853">zhuanlan.zhihu.com/p/37482853</a></p>
+<p>咱们这次不要求在weex里可用，所以叠起来非常简单。</p>
+<p>首先让三个卡片按照<code>近大远小</code>的原则分别设置设置<code>z-index</code>，宽和高，比如每一层卡片的宽和高比上一层卡片要缩小20个像素（还有一种做法是通过zoom或者scale来设置远处卡片的缩小级别）。然后加入绝对定位<code>position:absolute</code>和<code>z-index</code>就可以将卡片层叠起来了。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1de6b260984f4d3f95d5f3d91857a1d5~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<h1 id="拖动第一张卡">拖动第一张卡</h1>
+<p>因为只有第一张卡片可以拖动，所以我们只要监听第一张卡片的拖动事件。比如<code>touchstart</code>,<code>touchmove</code>,<code>touchcancel</code>,<code>touchend</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c3d9f782df34dd4a350fb4fe85b33fa~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<p>拖动的时候需要注意，在<code>touchstart</code>的时候记录一下手指按下的位置，在<code>touchmove</code>时要减去这个位置，看上去就是点哪儿从哪儿拖。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">touchStart</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>){
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">curTouch</span><span style="color:#f92672">=</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">touches</span>[<span style="color:#ae81ff">0</span>];
+	<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startLeft</span><span style="color:#f92672">=</span><span style="color:#a6e22e">curTouch</span>.<span style="color:#a6e22e">clientX</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left</span>;
+	<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTop</span><span style="color:#f92672">=</span><span style="color:#a6e22e">curTouch</span>.<span style="color:#a6e22e">clientY</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top</span>;
+}
+<span style="color:#a6e22e">touchMove</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>){
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">curTouch</span><span style="color:#f92672">=</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">touches</span>[<span style="color:#ae81ff">0</span>];
+	<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left</span><span style="color:#f92672">=</span><span style="color:#a6e22e">curTouch</span>.<span style="color:#a6e22e">clientX</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startLeft</span>;
+	<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top</span><span style="color:#f92672">=</span><span style="color:#a6e22e">curTouch</span>.<span style="color:#a6e22e">clientY</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTop</span>;
+}
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><h1 id="飞出去">飞出去</h1>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1ca2fb986644d00a2163ad14e9bfcab~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<p>要实现超任意拖拽方向飞出去这个效果，需要用到一些数学公式。</p>
+<p>计算卡片当前拖拽的坐标和起始坐标的夹角</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">angle</span><span style="color:#f92672">=</span>Math.<span style="color:#a6e22e">atan2</span>((<span style="color:#a6e22e">当前坐标</span>.<span style="color:#a6e22e">y</span><span style="color:#f92672">-</span><span style="color:#a6e22e">起点坐标</span>.<span style="color:#a6e22e">y</span>), (<span style="color:#a6e22e">当前坐标</span>.<span style="color:#a6e22e">x</span><span style="color:#f92672">-</span><span style="color:#a6e22e">起点坐标</span>.<span style="color:#a6e22e">x</span>));
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>飞出去的落点<code>x</code>轴坐标通过计算angle的余弦值再乘以力度得出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left</span><span style="color:#f92672">=</span>Math.<span style="color:#a6e22e">cos</span>(<span style="color:#a6e22e">angle</span>)<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">throwDistance</span>;
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>飞出去的落点<code>y</code>轴坐标通过计算angle的正弦值再乘以力度得出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top</span><span style="color:#f92672">=</span>Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">angle</span>)<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">throwDistance</span>;
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>这里咱们做得再完善一些，在拖动结束时去判断一下当前拖动的距离是否足够触发飞卡效果。如果不触发飞卡效果，则触发回位效果。这样的话也可以防止用户误操作。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ba699a2ad0747b889f307954c51507b~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//计算两点之间的直线距离
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">getDistance</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">y1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">y2</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_x</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">abs</span>(<span style="color:#a6e22e">x1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">x2</span>); 
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_y</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">abs</span>(<span style="color:#a6e22e">y1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">y2</span>); 
+    <span style="color:#66d9ef">return</span> Math.<span style="color:#a6e22e">sqrt</span>(<span style="color:#a6e22e">_x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">_x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">_y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">_y</span>);
+}
+            
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">distance</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getDistance</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left</span>,<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top</span>);
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">distance</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">throwTriggerDistance</span>){
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">makeCardThrow</span>();
+}<span style="color:#66d9ef">else</span>{
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">makeCardBack</span>();
+}
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><h1 id="下层的卡片上推">下层的卡片上推</h1>
+<p>上推其实很简单，一开始的时候，我就定义了四张（<code>不是3张吗？怎么变4张了</code>）卡片的大小和位置。</p>
+<p>当第一张卡飞出去后</p>
+<ul>
+<li>第2张卡片变更为原本第1张卡片的位置和大小</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">width2</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardWidth</span>;
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">height2</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardHeight</span>;
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left2</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top2</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><ul>
+<li>第3张卡片变更为原本第2张卡片的位置和大小</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">width3</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardWidth</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">leftPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">height3</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardHeight</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">topPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left3</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">leftPad</span>;
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top3</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">topPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>);
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><ul>
+<li>第4张卡片原本是透明的，现在变为第3张卡片的位置和大小</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">width4</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardWidth</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">leftPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">height4</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cardHeight</span><span style="color:#f92672">-</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">topPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left4</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">leftPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>;
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">top4</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">topPad</span><span style="color:#f92672">*</span><span style="color:#ae81ff">6</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">opacity4</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>我把阴影效果先去掉，大家观察一下这个细节</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9678dc3521544bfbd662b80643b752a~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<h1 id="重置所有卡片">重置所有卡片</h1>
+<p>底层的卡片上推和第一张卡片的飞出效果是同时进行的，由css的<code>transition</code>来控制。不过时间是我们设定好的，所以只要在上推和飞出的动画时间结束后，我们重置一下所有4张卡片的大小和位置即可。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/befc7c05e10f400ebb41d65018b0e30a~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">onThrowStart</span>();
+<span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span>(){
+    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">isThrow</span><span style="color:#f92672">=</span><span style="color:#66d9ef">false</span>;
+    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">isAnimating</span><span style="color:#f92672">=</span><span style="color:#66d9ef">false</span>;
+    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">onThrowDone</span>();
+    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">resetAllCard</span>();
+},<span style="color:#ae81ff">400</span>);
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>这里需要注意，所有四张卡片都需要<code>瞬间</code>完成重置，所以这步之前应该禁用掉transition动画。</p>
+<h1 id="组件化">组件化</h1>
+<p>为了适应各种使用场景，我们要将这个效果封装一下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//提供几个事件，分别是拖动时，拖动结束，飞卡结束，飞卡失败（回位）
+</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onDragMove</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardDragMove&#39;</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onDragStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardDragStop&#39;</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onThrowDone</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardThrowDone&#39;</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onThrowFail</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardThrowFail&#39;</span>
+
+<span style="color:#75715e">//参数就不细说了，都能看明白
+</span><span style="color:#75715e"></span><span style="color:#f92672">:</span><span style="color:#a6e22e">cardWidth</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span> 
+<span style="color:#f92672">:</span><span style="color:#a6e22e">cardHeight</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span>
+<span style="color:#a6e22e">cardBgColor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">leftPad</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">topPad</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;6&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">borderRadius</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;8&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">throwTriggerDistance</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100&#34;</span>
+<span style="color:#a6e22e">dragDirection</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">hasShadow</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;false&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">hasBorder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>提供三个slot，你可以非常方便的往卡片里塞内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//firstCard，secondCard，thirdCard
+</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">slot</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstCard&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/slot&gt;</span>
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><h1 id="现在来模仿几个效果">现在来模仿几个效果</h1>
+<h2 id="某乎的推荐回答">某乎的推荐回答</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onDragMove</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardDragMove&#39;</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onDragStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardDragStop&#39;</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onThrowDone</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;onCardThrowDone&#39;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">cardWidth</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;300&#34;</span> 
+<span style="color:#f92672">:</span><span style="color:#a6e22e">cardHeight</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;120&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">throwTriggerDistance</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100&#34;</span>
+<span style="color:#a6e22e">dragDirection</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;horizontal&#34;</span>
+<span style="color:#f92672">:</span><span style="color:#a6e22e">hasShadow</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p>仅允许水平拖动</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a703a3f3f43446e3b0e7ea026b8e2415~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<p>由于改变宽高会导致文字换行变化，也许卡片用缩放的话，用户体验会更好一些吧</p>
+<h2 id="探探的效果">探探的效果</h2>
+<p>实现探探效果的核心是监听卡片拖动的位置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">onCardDragMove</span>(<span style="color:#a6e22e">obj</span>){
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">left</span><span style="color:#f92672">&lt;-</span><span style="color:#ae81ff">10</span>){
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actionName</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;不喜欢&#34;</span>;
+    }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">left</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">10</span>){
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actionName</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;喜欢&#34;</span>;
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">actionName</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>;
+    }
+}
+<span style="color:#a6e22e">复制代码</span>
+</code></pre></div><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fcdac5da3524ad6bd682449596b78f9~tplv-k3u1fbpfcp-watermark.image" alt=""></p>
+<h1 id="源码仓库">源码仓库</h1>
+<p><a href="https://github.com/ezshine/ezflycard">github.com/ezshine/ezf…</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>WJun </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/>https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://duduhusky.github.io/tags/vue/">
+                    #vue</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://duduhusky.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://duduhusky.github.io/2020/nlp_measure/" class="prev" rel="prev" title="NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)"><i class="iconfont icon-left"></i>&nbsp;NLP的Precision(查准率,精确率),Recall(查全率,召回率),Accuracy(准确率)以及综合评价指标(F1-Measure)</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <script src="https://utteranc.es/client.js"
+                repo="duduhusky/duduHusky.github.io"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+
+
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://duduhusky.github.io">WJun</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">皖ICP备19022465号 </a> |
+         
+		  <a href="/friends" rel="friends">友情链接</a>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
