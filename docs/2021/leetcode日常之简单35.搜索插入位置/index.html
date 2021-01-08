@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://duduhusky.github.io/2019/yii2-mysql-associate-type/" />
-  <link rel="next" href="https://duduhusky.github.io/2019/vue-console/" />
-  <link rel="canonical" href="https://duduhusky.github.io/2019/vue-axios-http/" />
+  <link rel="prev" href="https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/" />
+  
+  <link rel="canonical" href="https://duduhusky.github.io/2021/leetcode%E6%97%A5%E5%B8%B8%E4%B9%8B%E7%AE%80%E5%8D%9535.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,10 +23,10 @@
   <title>
        
        
-           Vue中使用axios发送请求 | duduHusky
+           leetcode日常之简单:35.搜索插入位置 | duduHusky
        
   </title>
-  <meta name="title" content="Vue中使用axios发送请求 | duduHusky">
+  <meta name="title" content="leetcode日常之简单:35.搜索插入位置 | duduHusky">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,21 +45,21 @@
          "@id": "https:\/\/duduhusky.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Vue中使用axios发送请求",
-    "headline" : "Vue中使用axios发送请求",
-    "description" : "首先前端部分 let instance = axios.create({ baseURL: \x26#39;http:\/\/api.xxx.com\x26#39;, headers: { \x26#39;Access-Control-Allow-Origin\x26#39;: \x26#39;*\x26#39;, \x26#39;Content-Type\x26#39;: \x26#39;application\/json\x26#39;, } }) 后端PHP部分 public function behaviors() { return ArrayHelper::merge([ [ \x26#39;class\x26#39; =\x26gt; Cors::className() ], ], parent::behaviors()); } 主要有几点注意：\n 对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回. 对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx 另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常   跨域请求想要带上 cookies 必须在请求头里面加上 crossDomain: true withCredentials: true 后端需要添加Access-Control-Allow-Credentials: true\n   顺便-\x26gt;Yii2添加解析json数据\n\x26#39;request\x26#39; =\x26gt; [ \x26#39;parsers\x26#39; =\x26gt; [ \x26#39;application\/json\x26#39; =\x26gt; \x26#39;yii\\web\\JsonParser\x26#39;, ] ],  ",
+    "name" : "leetcode日常之简单:35.搜索插入位置",
+    "headline" : "leetcode日常之简单:35.搜索插入位置",
+    "description" : "给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。\n你可以假设数组中无重复元素。\n示例 1:\n输入: [1,3,5,6], 5 输出: 2 示例 2:\n输入: [1,3,5,6], 2 输出: 1 示例 3:\n输入: [1,3,5,6], 7 输出: 4 示例 4:\n输入: [1,3,5,6], 0 输出: 0  Golang代码:\nfunc searchInsert(nums []int, target int) int { p := 0 for k, v := range nums { if v == target { p = k break } if v \x26lt; target { p = k \x2b 1 } if v \x26gt; target { break } } return p } ",
     "inLanguage" : "en-us",
     "author" : "WJun",
     "creator" : "WJun",
     "publisher": "WJun",
     "accountablePerson" : "WJun",
     "copyrightHolder" : "WJun",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-12-07 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-12-07 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/duduhusky.github.io\/2019\/vue-axios-http\/",
-    "wordCount" : "73",
-    "keywords" : [ "vue","axios", "duduHusky"]
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-08 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-08 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/duduhusky.github.io\/2021\/leetcode%E6%97%A5%E5%B8%B8%E4%B9%8B%E7%AE%80%E5%8D%9535.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE\/",
+    "wordCount" : "80",
+    "keywords" : [ "leetcode","算法", "duduHusky"]
 }
 </script>
 
@@ -117,16 +117,17 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Vue中使用axios发送请求</h1>
+        <h1 class="post-title" itemprop="name headline">leetcode日常之简单:35.搜索插入位置</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://duduhusky.github.io" rel="author">WJun</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-12-07 itemprop="datePublished">December 7, 2019</time>
+                on <time datetime=2021-01-08 itemprop="datePublished">January 8, 2021</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://duduhusky.github.io/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+                        <a href="https://duduhusky.github.io/categories/leetcode/"> leetcode </a>
+                        <a href="https://duduhusky.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
                         
                 </span>
         </div>
@@ -147,44 +148,39 @@
           
           
 
-          <h3 id="首先前端部分">首先前端部分</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({
-    <span style="color:#a6e22e">baseURL</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://api.xxx.com&#39;</span>,
-    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
-        <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*&#39;</span>,
-        <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+          <p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
+<p>你可以假设数组中无重复元素。</p>
+<p><strong>示例 1:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">输入: [1,3,5,6], 5
+输出: 2
+</code></pre></div><p><strong>示例 2:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">输入: [1,3,5,6], 2
+输出: 1
+</code></pre></div><p><strong>示例 3:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">输入: [1,3,5,6], 7
+输出: 4
+</code></pre></div><p><strong>示例 4:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">输入: [1,3,5,6], 0
+输出: 0
+</code></pre></div><hr>
+<p><strong>Golang代码:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">searchInsert</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">nums</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">target</span> {
+            <span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">k</span>
+            <span style="color:#66d9ef">break</span>
+        }
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> &lt; <span style="color:#a6e22e">target</span> {
+            <span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        }
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> &gt; <span style="color:#a6e22e">target</span> {
+            <span style="color:#66d9ef">break</span>
+        }
     }
-})
-</code></pre></div><h3 id="后端php部分">后端PHP部分</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">public function behaviors() {
-        return ArrayHelper::merge([
-            [
-                &#39;class&#39; =&gt; Cors::className()
-            ],
-        ], parent::behaviors());
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p</span>
 }
-</code></pre></div><p>主要有几点注意：</p>
-<ol>
-<li>对于跨域请求浏览器一般不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的 withCredentials 属性为 true：withCredentials: true。此时要求服务器的响应信息中携带 Access-Control-Allow-Credentials: true，否则响应内容将不会返回.</li>
-<li>对于携带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。因为请求头携带了 Cookie 信息。要将 Access-Control-Allow-Origin 的值设置为xxx</li>
-<li>另外，响应头中也携带了 Set-Cookie 字段，尝试对 Cookie 进行修改。如果操作失败，将会抛出异常</li>
-</ol>
-<blockquote>
-<p>跨域请求想要带上 cookies 必须在请求头里面加上
-crossDomain: true
-withCredentials: true
-后端需要添加<code>Access-Control-Allow-Credentials: true</code></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>顺便-&gt;Yii2添加解析json数据</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&#39;request&#39; =&gt; [
-     &#39;parsers&#39; =&gt; [
-        &#39;application/json&#39; =&gt; &#39;yii\web\JsonParser&#39;,
-      ]
-],
-</code></pre></div></blockquote>
-
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -198,7 +194,7 @@ withCredentials: true
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://duduhusky.github.io/2019/vue-axios-http/>https://duduhusky.github.io/2019/vue-axios-http/</span>
+                    <a href=https://duduhusky.github.io/2021/leetcode%E6%97%A5%E5%B8%B8%E4%B9%8B%E7%AE%80%E5%8D%9535.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/>https://duduhusky.github.io/2021/leetcode%E6%97%A5%E5%B8%B8%E4%B9%8B%E7%AE%80%E5%8D%9535.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</span>
             </p>
             
              
@@ -214,11 +210,11 @@ withCredentials: true
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://duduhusky.github.io/tags/vue/">
-                    #vue</a></span>
+            <span class="tag"><a href="https://duduhusky.github.io/tags/leetcode/">
+                    #leetcode</a></span>
             
-            <span class="tag"><a href="https://duduhusky.github.io/tags/axios/">
-                    #axios</a></span>
+            <span class="tag"><a href="https://duduhusky.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
             
             </section>
         
@@ -230,10 +226,8 @@ withCredentials: true
 
     <div class="post-nav">
         
-        <a href="https://duduhusky.github.io/2019/yii2-mysql-associate-type/" class="prev" rel="prev" title="yii2数据库查询结果字段类型的问题"><i class="iconfont icon-left"></i>&nbsp;yii2数据库查询结果字段类型的问题</a>
+        <a href="https://duduhusky.github.io/2020/vue%E4%BB%BF%E6%8E%A2%E6%8E%A2%E6%8B%96%E6%8B%BD%E5%8D%A1%E7%89%87%E7%9A%84%E6%95%88%E6%9E%9C/" class="prev" rel="prev" title="Vue仿探探拖拽卡片的效果"><i class="iconfont icon-left"></i>&nbsp;Vue仿探探拖拽卡片的效果</a>
          
-        
-        <a href="https://duduhusky.github.io/2019/vue-console/" class="next" rel="next" title="重置vue打印变量显示方式">重置vue打印变量显示方式&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
